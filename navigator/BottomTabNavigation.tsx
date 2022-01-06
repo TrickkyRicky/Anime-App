@@ -3,6 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MyTabsAnime, MyTabsManga } from './TopTabNavigation';
 import { Ionicons } from '@expo/vector-icons';
 
+import { Dimensions } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
+console.log(screenWidth);
+
 const Tab = createBottomTabNavigator();
 
 type Props = {
@@ -12,6 +18,7 @@ type Props = {
 const BottomTabNavigation = () => {
 	return (
 		<Tab.Navigator
+			initialRouteName='Anime'
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused, color, size }) => {
 					let iconName;
@@ -23,8 +30,22 @@ const BottomTabNavigation = () => {
 					}
 					return <Ionicons name={iconName} size={size} color={color} />;
 				},
-				tabBarActiveTintColor: '#312e81',
-				tabBarInactiveTintColor: 'gray'
+				tabBarActiveTintColor: '#CCC',
+				tabBarInactiveTintColor: '#fff',
+				tabBarActiveBackgroundColor: '#3730a3',
+				tabBarInactiveBackgroundColor: '#3730a3',
+				tabBarStyle: {
+					borderTopWidth: 0,
+					elevation: 0,
+					paddingBottom: 0
+					// marginBottom: 0,
+					// height: 60
+				},
+				tabBarItemStyle: {
+					paddingBottom: screenWidth < 400 ? 0 : 20
+				},
+				// tabBarLabelPosition: 'beside-icon',
+				headerTitle: 'Anime App'
 				// headerShown: false
 			})}
 		>
