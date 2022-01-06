@@ -1,18 +1,18 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { NativeBaseProvider, Text, Box, Heading } from 'native-base';
+import { NativeBaseProvider } from 'native-base';
+import { NavigationContainer } from '@react-navigation/native';
+import BottomTabNavigation from './navigator/BottomTabNavigation';
+import { Provider } from 'react-redux';
 
 const App = () => {
 	return (
-		<NativeBaseProvider>
-			<Box flex={1} alignItems='center' justifyContent='center'>
-				<Heading size='3xl'>Anime App</Heading>
-				<Text fontSize='xl'>Hello Anime App</Text>
-			</Box>
-		</NativeBaseProvider>
+		// <Provider></Provider>
+		<NavigationContainer>
+			<NativeBaseProvider>
+				<BottomTabNavigation />
+			</NativeBaseProvider>
+		</NavigationContainer>
 	);
 };
 
 export default App;
-
-const styles = StyleSheet.create({});
