@@ -1,13 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 
+import AnimeSlice from "./Anime/Anime-Slice";
+import MangaSlice from "./Manga/Manga-Slice";
 const store = configureStore({
-	reducer: {
-		Anime: AnimeReducer,
-		Mnaga: MangaReducer
-	}
+  reducer: {
+    Anime: AnimeSlice.reducer,
+    Mnaga: MangaSlice.reducer,
+  },
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+export default store;
