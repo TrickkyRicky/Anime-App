@@ -22,7 +22,7 @@ const Tab = createMaterialTopTabNavigator();
 const options = {
 	tabBarLabelStyle: { fontSize: 13, fontFamily: 'mont' },
 	tabBarItemStyle: { width: 170 },
-	tabBarStyle: { backgroundColor: '#3730a3' },
+	tabBarStyle: { backgroundColor: '#52376A' },
 	tabBarBounces: true,
 	tabBarScrollEnabled: true,
 	tabBarPressOpacity: 0.5,

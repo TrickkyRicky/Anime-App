@@ -60,8 +60,8 @@ const BottomTabNavigation = () => {
 				},
 				tabBarActiveTintColor: '#CCC',
 				tabBarInactiveTintColor: '#fff',
-				tabBarActiveBackgroundColor: '#3730a3',
-				tabBarInactiveBackgroundColor: '#3730a3',
+				tabBarActiveBackgroundColor: '#52376A',
+				tabBarInactiveBackgroundColor: '#52376A',
 				tabBarStyle: {
 					borderTopWidth: 0,
 					elevation: 0,
@@ -75,8 +75,8 @@ const BottomTabNavigation = () => {
 				tabBarLabelPosition: 'beside-icon',
 				headerTitle: CustomHomeHeader,
 				headerStyle: {
-					backgroundColor: '#3730a3',
-					shadowColor: '#3730a3',
+					backgroundColor: '#52376A',
+					shadowColor: '#52376A',
 					elevation: 0
 				}
 			})}

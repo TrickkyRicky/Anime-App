@@ -8,7 +8,7 @@ export const getAnimeData = (type: string) => {
 
 		const getData = async () => {
 			const res = await fetch(
-				`https://api.myanimelist.net/v2/anime/ranking?ranking_type=${type}&limit=500`,
+				`https://api.myanimelist.net/v2/anime/ranking?ranking_type=${type}`,
 				{
 					headers: { 'X-MAL-Client-ID': CLIENT_ID }
 				}
@@ -21,7 +21,7 @@ export const getAnimeData = (type: string) => {
 
 		try {
 			const result = await getData();
-			// console.log(result.data);
+			console.log(result.data);
 			switch (type) {
 				case 'airing':
 					dispatch(AnimeActions.setTopAiring(result.data));

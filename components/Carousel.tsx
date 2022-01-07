@@ -7,14 +7,12 @@ const screenHeight = Dimensions.get('window').height;
 
 const Carousel = () => {
 	return (
-		<Center alignItems='center' justifyContent='flex-start'>
-			<Box
-				bg='blue.700'
-				height={200}
-				width={screenWidth * 0.9}
-				borderRadius={20}
-				mb={5}
-			>
+		<Center
+			alignItems='center'
+			justifyContent='flex-start'
+			style={{ paddingHorizontal: 12 }}
+		>
+			<Box bg='blue.700' height={200} width={'100%'} borderRadius={20} mb={5}>
 				<Text textAlign='center'>Carousel</Text>
 			</Box>
 		</Center>
