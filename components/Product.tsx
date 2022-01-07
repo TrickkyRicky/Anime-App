@@ -7,7 +7,7 @@ const screenHeight = Dimensions.get('window').height;
 
 const Product = ({ name, image }) => {
 	return (
-		<VStack alignItems='center'>
+		<VStack alignItems='center' px={1}>
 			<Image
 				source={{
 					uri: image
@@ -20,7 +20,13 @@ const Product = ({ name, image }) => {
 				}}
 			/>
 
-			<Text color='#fff' fontWeight={500} fontSize='lg' mb={3}>
+			<Text
+				color='#fff'
+				fontWeight={500}
+				fontFamily={'mont'}
+				fontSize='lg'
+				mb={3}
+			>
 				{name}
 			</Text>
 		</VStack>

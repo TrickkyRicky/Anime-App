@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const AnimeMovies = () => {
 	return (
-		<Box flex={1} justifyContent='center' alignItems='center'>
+		<Box flex={1} bg='#3730a3' p={2}>
 			<Text fontSize='xl'>Anime Movies</Text>
 		</Box>
 	);

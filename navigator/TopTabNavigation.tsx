@@ -12,11 +12,16 @@ import TopManhua from '../screens/Manga/TopManhua';
 import TopManhwa from '../screens/Manga/TopManhwa';
 import PopularManga from '../screens/Manga/PopularManga';
 
+import { Dimensions } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
+
 const Tab = createMaterialTopTabNavigator();
 
 const options = {
-	// tabBarLabelStyle: { fontSize: 12 },
-	// tabBarItemStyle: { width: 100 },
+	tabBarLabelStyle: { fontSize: 13, fontFamily: 'mont' },
+	tabBarItemStyle: { width: 170 },
 	tabBarStyle: { backgroundColor: '#3730a3' },
 	tabBarBounces: true,
 	tabBarScrollEnabled: true,

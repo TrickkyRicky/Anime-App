@@ -30,7 +30,7 @@ const MangaSlice = createSlice({
 		},
 		// details will be an object an not an array
 		mangaDetails: {
-			details: [] as any[],
+			details: {},
 			detailLoader: false as boolean
 		}
 	},
@@ -72,12 +72,8 @@ const MangaSlice = createSlice({
 		setMostPopular(state, action: PayloadAction<any[]>) {
 			state.mostPopular.manga = [...state.mostPopular.manga, ...action.payload];
 		},
-		// change later details will be an object
-		setMangaDetails(state, action: PayloadAction<any[]>) {
-			state.mangaDetails.details = [
-				...state.mangaDetails.details,
-				...action.payload
-			];
+		setMangaDetails(state, action: PayloadAction<{}>) {
+			state.mangaDetails.details = { ...action.payload };
 		}
 	}
 });

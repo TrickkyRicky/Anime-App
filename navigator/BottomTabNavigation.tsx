@@ -2,17 +2,45 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MyTabsAnime, MyTabsManga } from './TopTabNavigation';
 import { Ionicons } from '@expo/vector-icons';
-
-import { Dimensions } from 'react-native';
+import { getHeaderTitle } from '@react-navigation/elements';
+import { Dimensions, View, Image } from 'react-native';
+import { Text } from 'native-base';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
-console.log(screenWidth);
 
 const Tab = createBottomTabNavigator();
 
 type Props = {
 	name: keyof typeof Ionicons.glyphMap;
+};
+
+const CustomHomeHeader = () => {
+	return (
+		<View
+			style={{
+				flex: 1,
+				flexDirection: 'row',
+				justifyContent: 'center',
+				alignItems: 'center'
+			}}
+		>
+			<Image
+				source={{
+					uri: 'https://aux.iconspalace.com/uploads/117428211619219278.png'
+				}}
+				style={{
+					width: 30,
+					height: 30,
+					resizeMode: 'cover'
+				}}
+			/>
+
+			<Text fontSize='3xl' fontFamily={'mont-extrabold'} color='#CCC'>
+				AniManga
+			</Text>
+		</View>
+	);
 };
 
 const BottomTabNavigation = () => {
@@ -44,9 +72,13 @@ const BottomTabNavigation = () => {
 				tabBarItemStyle: {
 					paddingBottom: screenWidth < 400 ? 0 : 20
 				},
-				// tabBarLabelPosition: 'beside-icon',
-				headerTitle: 'Anime App'
-				// headerShown: false
+				tabBarLabelPosition: 'beside-icon',
+				headerTitle: CustomHomeHeader,
+				headerStyle: {
+					backgroundColor: '#3730a3',
+					shadowColor: '#3730a3',
+					elevation: 0
+				}
 			})}
 		>
 			<Tab.Screen name='Anime' component={MyTabsAnime} />

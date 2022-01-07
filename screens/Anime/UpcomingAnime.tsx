@@ -3,7 +3,7 @@ import { Box, Text } from 'native-base';
 
 const UpcomingAnime = () => {
 	return (
-		<Box flex={1} justifyContent='center' alignItems='center'>
+		<Box flex={1} bg='#3730a3' p={2}>
 			<Text fontSize='xl'>Upcoming Anime</Text>
 		</Box>
 	);
