@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 // import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator } from '@react-navigation/stack';
 
-import DetailScreen from "../screens/DetailScreen";
-import BottomTabNavigation from "./BottomTabNavigation";
+import DetailScreen from '../screens/DetailScreen';
+import BottomTabNavigation from './BottomTabNavigation';
 
 const Stack = createStackNavigator();
 
@@ -17,16 +17,23 @@ const Stack = createStackNavigator();
 // };
 
 const MyStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Home"
-        component={BottomTabNavigation}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen name="Details" component={DetailScreen} options={{}} />
-    </Stack.Navigator>
-  );
+	return (
+		<Stack.Navigator>
+			<Stack.Screen
+				name='Home'
+				component={BottomTabNavigation}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name='Details'
+				component={DetailScreen}
+				options={{
+					cardOverlayEnabled: true,
+					headerShown: false
+				}}
+			/>
+		</Stack.Navigator>
+	);
 };
 
 // sharedElements={(route, otherRoute, showing) => {

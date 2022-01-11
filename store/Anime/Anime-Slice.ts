@@ -10,6 +10,7 @@ const AnimeSlice = createSlice({
 	initialState: {
 		topAiring: {
 			anime: [] as any[],
+			anime5: [] as any[],
 			animeLoader: false as boolean
 		},
 		topUpcoming: {
@@ -59,6 +60,8 @@ const AnimeSlice = createSlice({
 		},
 		setTopAiring(state, action: PayloadAction<any[]>) {
 			state.topAiring.anime = [...state.topAiring.anime, ...action.payload];
+			state.topAiring.anime.splice(0, 5);
+			state.topAiring.anime5 = [...action.payload.slice(0, 5)];
 		},
 		setTopUpcoming(state, action: PayloadAction<any[]>) {
 			state.topUpcoming.anime = [...state.topUpcoming.anime, ...action.payload];

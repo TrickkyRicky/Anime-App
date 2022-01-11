@@ -8,7 +8,7 @@ export const getAnimeData = (type: string) => {
 
 		const getData = async () => {
 			const res = await fetch(
-				`https://api.myanimelist.net/v2/anime/ranking?ranking_type=${type}`,
+				`https://api.myanimelist.net/v2/anime/ranking?ranking_type=${type}&limit=14`,
 				{
 					headers: { 'X-MAL-Client-ID': CLIENT_ID }
 				}
@@ -21,7 +21,6 @@ export const getAnimeData = (type: string) => {
 
 		try {
 			const result = await getData();
-			console.log(result.data);
 			switch (type) {
 				case 'airing':
 					dispatch(AnimeActions.setTopAiring(result.data));
@@ -78,7 +77,7 @@ export const getAnimeDetails = (id: number) => {
 
 		const getData = async () => {
 			const res = await fetch(
-				`https://api.myanimelist.net/v2/anime/${id}?fields=id,title,main_picture,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,num_list_users,num_scoring_users,nsfw,created_at,updated_at,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,background,related_anime,related_manga,recommendations,studios,statistics`,
+				`https://api.myanimelist.net/v2/anime/${id}?fields=id,title,main_picture,start_date,end_date,synopsis,mean,rank,media_type,status,genres,num_episodes,broadcast,rating,pictures,related_anime,recommendations,studios`,
 				{
 					headers: { 'X-MAL-Client-ID': CLIENT_ID }
 				}
