@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { StackNavigationProp } from '@react-navigation/stack';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { Box, Heading, HStack, Text, VStack } from 'native-base';
 import { getAnimeData } from '../../store/Anime/Anime-Actions';
@@ -8,6 +10,7 @@ import Carousel from '../../components/Carousel';
 import { ScrollView, TouchableOpacity, FlatList, View } from 'react-native';
 import { AnimeActions } from '../../store/Anime/Anime-Slice';
 import { RootState } from '../../store/index';
+import { useNavigation } from '@react-navigation/native';
 
 interface ListingItem {
 	item: {
@@ -25,8 +28,18 @@ interface ListingItem {
 	};
 }
 
+type navList = {
+	DetailScreen: {
+		anime: ListingItem['item']['node'];
+	};
+};
+
+type navProps = StackNavigationProp<navList, 'DetailScreen'>;
+
 const TopAiringAnime = () => {
 	const dispatch = useDispatch();
+	const navigation = useNavigation<navProps>();
+	// console.log(navigation.getState());
 	const topAiring = useSelector(
 		(state: RootState) => state.Anime.topAiring.anime
 	);
@@ -44,8 +57,9 @@ const TopAiringAnime = () => {
 					const anime = item.node;
 					return (
 						<TouchableOpacity
+							activeOpacity={0.4}
 							style={{ width: '33.333%', paddingHorizontal: 10 }}
-							onPress={() => console.log(`${anime.title} pressed`)}
+							onPress={() => navigation.navigate('DetailScreen', { anime })}
 						>
 							<TopAiringCard
 								title={anime.title}
@@ -73,8 +87,6 @@ const TopAiringAnime = () => {
 				)}
 				showsHorizontalScrollIndicator={false}
 				numColumns={3}
-
-				// showsVerticalScrollIndicator={false}
 			/>
 		</View>
 	);

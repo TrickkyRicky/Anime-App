@@ -36,7 +36,7 @@ export const MyTabsAnime = () => {
 			<Tab.Screen name='Top Upcoming' component={UpcomingAnime} />
 			<Tab.Screen name='Seasonal Anime' component={SeasonalAnime} />
 			<Tab.Screen name='Top Movies' component={AnimeMovies} />
-			<Tab.Screen name='Most Popular' component={PopularAnime} />
+			<Tab.Screen name='Most Popular' comzponent={PopularAnime} />
 		</Tab.Navigator>
 	);
 };

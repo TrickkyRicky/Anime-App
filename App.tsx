@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NativeBaseProvider } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabNavigation from './navigator/BottomTabNavigation';
+import { CombinedStack } from './navigator/StackNavigation';
 import { Provider } from 'react-redux';
 import store from './store/index';
 import AppLoading from 'expo-app-loading';
@@ -35,6 +36,7 @@ const App = () => {
 					<NavigationContainer>
 						<NativeBaseProvider>
 							<BottomTabNavigation />
+							{/* <CombinedStack /> */}
 						</NativeBaseProvider>
 					</NavigationContainer>
 				</Provider>
