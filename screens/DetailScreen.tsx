@@ -79,7 +79,7 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 					position: 'absolute',
 					width: screenWidth,
 					height: screenHeight,
-					transform: [{ translateY: screenHeight / 2.5 }],
+					transform: [{ translateY: screenHeight / 2 }],
 					borderRadius: 32,
 					padding: spacing,
 					paddingTop: 32
@@ -87,7 +87,7 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 			>
 				<Animatable.View animation='fadeInUp' delay={200}>
 					<Heading
-						size='2xl'
+						size='xl'
 						fontFamily={'mont-bold'}
 						color={colorScheme === 'dark' ? '#654582' : '#52376A'}
 						numberOfLines={2}
@@ -99,12 +99,12 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 					<HStack justifyContent='space-between' alignItems='flex-start'>
 						<Text
 							mb={2}
-							fontFamily={'mont-medium'}
+							fontFamily={'mont-bold'}
 							color={colorScheme === 'dark' ? '#654582' : '#52376A'}
-							fontSize='md'
+							fontSize='sm'
 						>
 							Airing Date:{' '}
-							<Text fontFamily={'mont-bold'} color='#414141' fontSize='md'>
+							<Text fontFamily={'mont-bold'} color='#414141' fontSize='sm'>
 								{animeDetails?.start_date}
 							</Text>
 						</Text>
@@ -123,7 +123,7 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 
 					<ScrollView
 						showsVerticalScrollIndicator={false}
-						style={{ height: screenHeight * 0.38 }}
+						style={{ height: screenHeight * 0.28 }}
 						alwaysBounceVertical={true}
 						bounces={true}
 					>

@@ -83,7 +83,7 @@ const Carousel = ({ animeTop5, nav, getDetails }: CarouselProps) => {
 									style={{
 										backgroundColor: '#A17CFE',
 										width: '100%',
-										height: '20%',
+										height: '25%',
 										borderBottomLeftRadius: 10,
 										borderBottomRightRadius: 10,
 										paddingHorizontal: 20,
@@ -98,7 +98,6 @@ const Carousel = ({ animeTop5, nav, getDetails }: CarouselProps) => {
 										color='#fff'
 										fontFamily={'mont-bold'}
 										fontSize={16}
-										lineHeight={0}
 										numberOfLines={2}
 									>
 										{anime.title}
@@ -119,12 +118,7 @@ const Carousel = ({ animeTop5, nav, getDetails }: CarouselProps) => {
 										opacity: 0.85
 									}}
 								>
-									<Text
-										color='#fff'
-										fontFamily={'mont-bold'}
-										fontSize={20}
-										lineHeight={0}
-									>
+									<Text color='#fff' fontFamily={'mont-bold'} fontSize={20}>
 										{item.ranking.rank}
 									</Text>
 								</View>
