@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Heading, Text } from 'native-base';
 import { View, Dimensions, Image, ScrollView } from 'react-native';
-import { SharedElement } from 'react-navigation-shared-element';
+// import { SharedElement } from 'react-navigation-shared-element';
 import { AntDesign } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
 import { DetailNavProps } from '../types/types';
@@ -61,10 +61,6 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 					height: screenHeight * 0.6
 				}}
 			/>
-
-			{/* <SharedElement id={anime?.id}> */}
-
-			{/* </SharedElement> */}
 
 			<View
 				style={{
