@@ -45,6 +45,7 @@ const TopAiringAnime = () => {
 			<FlatList
 				data={topAiring.anime}
 				keyExtractor={(item: ListingItem['item']) => item.node.id.toString()}
+				showsVerticalScrollIndicator={false}
 				renderItem={({ item }) => {
 					const anime = item.node;
 					return (

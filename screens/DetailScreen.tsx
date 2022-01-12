@@ -1,7 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Heading, Text } from 'native-base';
-import { View, Dimensions, Image, ScrollView } from 'react-native';
+import { Heading, Text, HStack } from 'native-base';
+import {
+	View,
+	Dimensions,
+	Image,
+	ScrollView,
+	Appearance,
+	useColorScheme
+} from 'react-native';
 // import { SharedElement } from 'react-navigation-shared-element';
 import { AntDesign } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
@@ -13,16 +20,20 @@ import * as Haptics from 'expo-haptics';
 const { height: screenHeight } = Dimensions.get('window');
 const { width: screenWidth } = Dimensions.get('window');
 
+type studio = {
+	id: number;
+	name: string;
+};
+
 const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 	const animeDetails = useSelector(
 		(state: RootState) => state.Anime.animeDetails.details
 	);
 	const { anime } = route.params;
-	// console.log(animeDetails);
+	console.log(animeDetails);
 
 	let spacing: number = 23;
-
-	const duration: number = 200;
+	let colorScheme = useColorScheme();
 
 	return (
 		<View style={{ flex: 1 }}>
@@ -64,7 +75,7 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 
 			<View
 				style={{
-					backgroundColor: '#fff',
+					backgroundColor: colorScheme === 'dark' ? '#121212' : '#ffffff',
 					position: 'absolute',
 					width: screenWidth,
 					height: screenHeight,
@@ -74,25 +85,52 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 					paddingTop: 32
 				}}
 			>
-				<Animatable.View animation='fadeInUp' delay={duration}>
+				<Animatable.View animation='fadeInUp' delay={200}>
 					<Heading
 						size='2xl'
 						fontFamily={'mont-bold'}
-						color='#52376A'
-						mb={2}
+						color={colorScheme === 'dark' ? '#654582' : '#52376A'}
 						numberOfLines={2}
+						mb={1}
 					>
 						{anime.title}
 					</Heading>
 
+					<HStack justifyContent='space-between' alignItems='flex-start'>
+						<Text
+							mb={2}
+							fontFamily={'mont-medium'}
+							color={colorScheme === 'dark' ? '#654582' : '#52376A'}
+							fontSize='md'
+						>
+							Airing Date:{' '}
+							<Text fontFamily={'mont-bold'} color='#414141' fontSize='md'>
+								{animeDetails?.start_date}
+							</Text>
+						</Text>
+
+						{animeDetails?.studios?.map((studio: studio) => (
+							<Text
+								key={studio.id}
+								fontSize='sm'
+								fontFamily={'mont-medium'}
+								color={colorScheme === 'dark' ? '#654582' : '#52376A'}
+							>
+								{studio.name}
+							</Text>
+						))}
+					</HStack>
+
 					<ScrollView
 						showsVerticalScrollIndicator={false}
-						style={{ height: screenHeight * 0.45 }}
+						style={{ height: screenHeight * 0.38 }}
+						alwaysBounceVertical={true}
+						bounces={true}
 					>
 						<Text
 							fontSize='sm'
 							fontFamily={'mont'}
-							color='#52376A'
+							color={colorScheme === 'dark' ? '#654582' : '#52376A'}
 							textAlign='justify'
 						>
 							{animeDetails?.synopsis != ''
@@ -100,6 +138,7 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 								: 'No Description Available'}
 						</Text>
 					</ScrollView>
+					<View style={{ height: 5 }} />
 				</Animatable.View>
 			</View>
 		</View>
