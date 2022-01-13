@@ -77,7 +77,7 @@ export const getAnimeDetails = (id: number) => {
 
 		const getData = async () => {
 			const res = await fetch(
-				`https://api.myanimelist.net/v2/anime/${id}?fields=id,title,main_picture,start_date,end_date,synopsis,mean,rank,media_type,status,genres,num_episodes,broadcast,rating,pictures,related_anime,recommendations,studios`,
+				`https://api.myanimelist.net/v2/anime/${id}?fields=id,title,main_picture,start_date,end_date,synopsis,rank,status,genres,num_episodes,broadcast,rating,pictures,related_anime,recommendations,studios`,
 				{
 					headers: { 'X-MAL-Client-ID': CLIENT_ID }
 				}

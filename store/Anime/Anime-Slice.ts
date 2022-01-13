@@ -15,6 +15,7 @@ const AnimeSlice = createSlice({
 		},
 		topUpcoming: {
 			anime: [] as any[],
+			anime5: [] as any[],
 			animeLoader: false as boolean
 		},
 		topSeasonal: {
@@ -65,6 +66,8 @@ const AnimeSlice = createSlice({
 		},
 		setTopUpcoming(state, action: PayloadAction<any[]>) {
 			state.topUpcoming.anime = [...state.topUpcoming.anime, ...action.payload];
+			state.topUpcoming.anime.splice(0, 5);
+			state.topUpcoming.anime5 = [...action.payload].slice(0, 5);
 		},
 		setTopMovies(state, action: PayloadAction<any[]>) {
 			state.topMovies.anime = [...state.topMovies.anime, ...action.payload];
@@ -81,6 +84,7 @@ const AnimeSlice = createSlice({
 		},
 		setTopAiringReset(state) {
 			state.topAiring.anime = [];
+			state.topUpcoming.anime = [];
 		}
 	}
 });

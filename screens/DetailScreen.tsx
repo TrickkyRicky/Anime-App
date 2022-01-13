@@ -9,13 +9,13 @@ import {
 	Appearance,
 	useColorScheme
 } from 'react-native';
-// import { SharedElement } from 'react-navigation-shared-element';
 import { AntDesign } from '@expo/vector-icons';
-import * as Animatable from 'react-native-animatable';
+import DetailsCarousel from '../components/Details/DetailsCarousel';
+
 import { DetailNavProps } from '../types/types';
 import { RootState } from '../store/index';
-import { BlurView } from 'expo-blur';
 import * as Haptics from 'expo-haptics';
+import * as Animatable from 'react-native-animatable';
 
 const { height: screenHeight } = Dimensions.get('window');
 const { width: screenWidth } = Dimensions.get('window');
@@ -26,17 +26,22 @@ type studio = {
 };
 
 const DetailScreen = ({ navigation, route }: DetailNavProps) => {
-	const animeDetails = useSelector(
-		(state: RootState) => state.Anime.animeDetails.details
-	);
+	const animeDetails = {
+		details: useSelector(
+			(state: RootState) => state.Anime.animeDetails.details
+		),
+		loader: useSelector(
+			(state: RootState) => state.Anime.animeDetails.detailLoader
+		)
+	};
+
 	const { anime } = route.params;
-	console.log(animeDetails);
 
 	let spacing: number = 23;
 	let colorScheme = useColorScheme();
 
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ flex: 1, backgroundColor: '#52376A' }}>
 			<AntDesign
 				name='leftcircle'
 				size={28}
@@ -53,26 +58,7 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 					zIndex: 2
 				}}
 			/>
-
-			<Image
-				source={{ uri: anime?.main_picture?.large }}
-				resizeMethod='resize'
-				style={{
-					width: screenWidth,
-					height: screenHeight * 0.6,
-					resizeMode: 'cover',
-					position: 'absolute',
-					top: 0
-				}}
-			/>
-			<BlurView
-				intensity={0}
-				tint='dark'
-				style={{
-					height: screenHeight * 0.6
-				}}
-			/>
-
+			<DetailsCarousel animeDetails={animeDetails} />
 			<View
 				style={{
 					backgroundColor: colorScheme === 'dark' ? '#121212' : '#ffffff',
@@ -105,11 +91,13 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 						>
 							Airing Date:{' '}
 							<Text fontFamily={'mont-bold'} color='#414141' fontSize='sm'>
-								{animeDetails?.start_date}
+								{!animeDetails?.details?.start_date
+									? 'No Date Available'
+									: animeDetails?.details?.start_date}
 							</Text>
 						</Text>
 
-						{animeDetails?.studios?.map((studio: studio) => (
+						{animeDetails?.details?.studios?.map((studio: studio) => (
 							<Text
 								key={studio.id}
 								fontSize='sm'
@@ -133,8 +121,8 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 							color={colorScheme === 'dark' ? '#654582' : '#52376A'}
 							textAlign='justify'
 						>
-							{animeDetails?.synopsis != ''
-								? animeDetails?.synopsis
+							{animeDetails?.details?.synopsis != ''
+								? animeDetails?.details?.synopsis
 								: 'No Description Available'}
 						</Text>
 					</ScrollView>
@@ -145,4 +133,10 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 	);
 };
 
+// genres []
+// broadcast ---> broadcast {}
+// related anime []
+// recommendations []
+// rating
+// num_episodes
 export default DetailScreen;

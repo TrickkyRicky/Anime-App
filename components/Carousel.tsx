@@ -5,12 +5,14 @@ import {
 	Image,
 	TouchableOpacity,
 	Animated,
+	Text,
 	ImageBackground
 } from 'react-native';
-import { Text } from 'native-base';
+// import { Text } from 'native-base';
 import { useDispatch } from 'react-redux';
 import { TopAirNavProps } from '../types/types';
 import SnapCarousel from 'react-native-snap-carousel';
+import * as Animatable from 'react-native-animatable';
 
 const { width, height } = Dimensions.get('window');
 const ITEM_SIZE = width * 0.6;
@@ -61,69 +63,79 @@ const Carousel = ({ animeTop5, nav, getDetails }: CarouselProps) => {
 							nav.navigate('Details', { anime });
 						}}
 					>
-						<Animated.View
-							style={{
-								marginBottom: 10,
-								marginHorizontal: SPACING,
-								transform: [{ translateY }]
-							}}
-						>
-							<ImageBackground
+						<Animatable.View animation='slideInRight' delay={650}>
+							<Animated.View
 								style={{
-									width: '100%',
-									height: ITEM_SIZE * 1.25,
-									borderRadius: 10,
-									position: 'relative'
+									marginBottom: 10,
+									marginHorizontal: SPACING,
+									transform: [{ translateY }]
 								}}
-								imageStyle={{ borderRadius: 10 }}
-								resizeMode='cover'
-								source={{ uri: anime.main_picture.large }}
 							>
-								<View
+								<ImageBackground
 									style={{
-										backgroundColor: '#A17CFE',
 										width: '100%',
-										height: '25%',
-										borderBottomLeftRadius: 10,
-										borderBottomRightRadius: 10,
-										paddingHorizontal: 20,
-										paddingVertical: 10,
-										justifyContent: 'center',
-										position: 'absolute',
-										bottom: 0,
-										opacity: 0.85
+										height: ITEM_SIZE * 1.25,
+										borderRadius: 10,
+										position: 'relative'
 									}}
+									imageStyle={{ borderRadius: 10 }}
+									resizeMode='cover'
+									source={{ uri: anime.main_picture.large }}
 								>
-									<Text
-										color='#fff'
-										fontFamily={'mont-bold'}
-										fontSize={16}
-										numberOfLines={2}
+									<View
+										style={{
+											backgroundColor: '#A17CFE',
+											width: '100%',
+											height: '25%',
+											borderBottomLeftRadius: 10,
+											borderBottomRightRadius: 10,
+											paddingHorizontal: 20,
+											paddingVertical: 10,
+											justifyContent: 'center',
+											position: 'absolute',
+											bottom: 0,
+											opacity: 0.85
+										}}
 									>
-										{anime.title}
-									</Text>
-								</View>
-								<View
-									style={{
-										backgroundColor: '#A17CFE',
-										width: 25,
-										height: 35,
-										borderRadius: 5,
-										padding: 5,
-										justifyContent: 'center',
-										alignItems: 'center',
-										position: 'absolute',
-										top: 5,
-										left: 5,
-										opacity: 0.85
-									}}
-								>
-									<Text color='#fff' fontFamily={'mont-bold'} fontSize={20}>
-										{item.ranking.rank}
-									</Text>
-								</View>
-							</ImageBackground>
-						</Animated.View>
+										<Text
+											style={{
+												color: '#fff',
+												fontSize: 17,
+												fontFamily: 'mont-bold'
+											}}
+											numberOfLines={2}
+										>
+											{anime.title}
+										</Text>
+									</View>
+									<View
+										style={{
+											backgroundColor: '#A17CFE',
+											width: 25,
+											height: 35,
+											borderRadius: 5,
+											padding: 5,
+											justifyContent: 'center',
+											alignItems: 'center',
+											position: 'absolute',
+											top: 5,
+											left: 5,
+											opacity: 0.85
+										}}
+									>
+										<Text
+											style={{
+												color: '#fff',
+												fontSize: 20,
+												fontFamily: 'mont-bold'
+											}}
+										>
+											{item.ranking.rank}
+										</Text>
+									</View>
+								</ImageBackground>
+							</Animated.View>
+						</Animatable.View>
 					</TouchableOpacity>
 				);
 			}}

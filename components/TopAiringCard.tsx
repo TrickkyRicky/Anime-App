@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Text, VStack } from 'native-base';
 import { Dimensions, Image, View } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -13,7 +14,7 @@ interface ProductProps {
 
 const Product = ({ title, image, rank }: ProductProps) => {
 	return (
-		<>
+		<Animatable.View animation='fadeInUp' delay={1000}>
 			<Image
 				source={{
 					uri: image
@@ -68,7 +69,7 @@ const Product = ({ title, image, rank }: ProductProps) => {
 					</Text>
 				</View>
 			</View>
-		</>
+		</Animatable.View>
 	);
 };
 

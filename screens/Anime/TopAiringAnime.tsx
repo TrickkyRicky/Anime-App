@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import TopAiringCard from '../../components/TopAiringCard';
+import * as Animatable from 'react-native-animatable';
 import Carousel from '../../components/Carousel';
 
 import { RootState } from '../../store/index';
@@ -69,16 +70,19 @@ const TopAiringAnime = () => {
 				horizontal={false}
 				ListHeaderComponent={() => (
 					<>
-						<Text
-							color='#fff'
-							textAlign='center'
-							fontSize='3xl'
-							fontWeight={700}
-							mb={2}
-							fontFamily={'mont-bold'}
-						>
-							Top Airing Anime
-						</Text>
+						<Animatable.View animation='fadeIn' delay={400}>
+							<Text
+								color='#fff'
+								textAlign='center'
+								fontSize='3xl'
+								fontWeight={700}
+								mb={2}
+								fontFamily={'mont-bold'}
+							>
+								Top Airing Anime
+							</Text>
+						</Animatable.View>
+
 						<Carousel
 							animeTop5={topAiring.anime5}
 							nav={navigation}
