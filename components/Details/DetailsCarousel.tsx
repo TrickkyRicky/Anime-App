@@ -1,8 +1,10 @@
 import React from 'react';
 import { Image, Dimensions } from 'react-native';
 import SnapCarousel from 'react-native-snap-carousel';
-// aight
+
 type Props = {
+	width: number;
+	height: number;
 	animeDetails: {
 		details: { pictures: [] };
 		loader: boolean;
@@ -21,15 +23,12 @@ const imgLoad = [
 	}
 ];
 
-const { height: screenHeight } = Dimensions.get('window');
-const { width: screenWidth } = Dimensions.get('window');
-
-const DetailsCarousel = ({ animeDetails }: Props) => {
+const DetailsCarousel = ({ animeDetails, width, height }: Props) => {
 	return (
 		<SnapCarousel
 			data={animeDetails.loader ? imgLoad : animeDetails.details.pictures}
-			sliderWidth={screenWidth}
-			itemWidth={screenWidth}
+			sliderWidth={width}
+			itemWidth={width}
 			layout='stack'
 			autoplay={true}
 			loop={true}
@@ -39,8 +38,8 @@ const DetailsCarousel = ({ animeDetails }: Props) => {
 					<Image
 						source={{ uri: item?.large }}
 						style={{
-							width: screenWidth,
-							height: screenHeight * 0.6,
+							width: width,
+							height: height * 0.6,
 							resizeMode: 'cover',
 							position: 'absolute',
 							top: 0

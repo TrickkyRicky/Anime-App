@@ -29,6 +29,7 @@ const options = {
 	tabBarActiveTintColor: '#818cf8',
 	tabBarInactiveTintColor: '#fff'
 };
+
 export const MyTabsAnime = () => {
 	return (
 		<Tab.Navigator screenOptions={options}>
@@ -40,6 +41,7 @@ export const MyTabsAnime = () => {
 		</Tab.Navigator>
 	);
 };
+
 export const MyTabsManga = () => {
 	return (
 		<Tab.Navigator screenOptions={options}>

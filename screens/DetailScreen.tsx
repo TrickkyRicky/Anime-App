@@ -1,29 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Heading, Text, HStack } from 'native-base';
-import {
-	View,
-	Dimensions,
-	Image,
-	ScrollView,
-	Appearance,
-	useColorScheme
-} from 'react-native';
+import { View, Dimensions } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import DetailsCarousel from '../components/Details/DetailsCarousel';
+import DetailsInfo from '../components/Details/DetailsInfo';
 
 import { DetailNavProps } from '../types/types';
 import { RootState } from '../store/index';
+
 import * as Haptics from 'expo-haptics';
-import * as Animatable from 'react-native-animatable';
+// import FadingEdge from 'react-native-fading-edge';
 
 const { height: screenHeight } = Dimensions.get('window');
 const { width: screenWidth } = Dimensions.get('window');
-
-type studio = {
-	id: number;
-	name: string;
-};
 
 const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 	const animeDetails = {
@@ -36,9 +26,7 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 	};
 
 	const { anime } = route.params;
-
-	let spacing: number = 23;
-	let colorScheme = useColorScheme();
+	const spacing: number = 23;
 
 	return (
 		<View style={{ flex: 1, backgroundColor: '#52376A' }}>
@@ -58,85 +46,21 @@ const DetailScreen = ({ navigation, route }: DetailNavProps) => {
 					zIndex: 2
 				}}
 			/>
-			<DetailsCarousel animeDetails={animeDetails} />
-			<View
-				style={{
-					backgroundColor: colorScheme === 'dark' ? '#121212' : '#ffffff',
-					position: 'absolute',
-					width: screenWidth,
-					height: screenHeight,
-					transform: [{ translateY: screenHeight / 2 }],
-					borderRadius: 32,
-					padding: spacing,
-					paddingTop: 32
-				}}
-			>
-				<Animatable.View animation='fadeInUp' delay={200}>
-					<Heading
-						size='xl'
-						fontFamily={'mont-bold'}
-						color={colorScheme === 'dark' ? '#654582' : '#52376A'}
-						numberOfLines={2}
-						mb={1}
-					>
-						{anime.title}
-					</Heading>
+			<DetailsCarousel
+				animeDetails={animeDetails}
+				height={screenHeight}
+				width={screenWidth}
+			/>
 
-					<HStack justifyContent='space-between' alignItems='flex-start'>
-						<Text
-							mb={2}
-							fontFamily={'mont-bold'}
-							color={colorScheme === 'dark' ? '#654582' : '#52376A'}
-							fontSize='sm'
-						>
-							Airing Date:{' '}
-							<Text fontFamily={'mont-bold'} color='#414141' fontSize='sm'>
-								{!animeDetails?.details?.start_date
-									? 'No Date Available'
-									: animeDetails?.details?.start_date}
-							</Text>
-						</Text>
-
-						{animeDetails?.details?.studios?.map((studio: studio) => (
-							<Text
-								key={studio.id}
-								fontSize='sm'
-								fontFamily={'mont-medium'}
-								color={colorScheme === 'dark' ? '#654582' : '#52376A'}
-							>
-								{studio.name}
-							</Text>
-						))}
-					</HStack>
-
-					<ScrollView
-						showsVerticalScrollIndicator={false}
-						style={{ height: screenHeight * 0.28 }}
-						alwaysBounceVertical={true}
-						bounces={true}
-					>
-						<Text
-							fontSize='sm'
-							fontFamily={'mont'}
-							color={colorScheme === 'dark' ? '#654582' : '#52376A'}
-							textAlign='justify'
-						>
-							{animeDetails?.details?.synopsis != ''
-								? animeDetails?.details?.synopsis
-								: 'No Description Available'}
-						</Text>
-					</ScrollView>
-					<View style={{ height: 5 }} />
-				</Animatable.View>
-			</View>
+			<DetailsInfo
+				animeDetails={animeDetails}
+				animeTitle={anime.title}
+				width={screenWidth}
+				height={screenHeight}
+				spacing={spacing}
+			/>
 		</View>
 	);
 };
 
-// genres []
-// broadcast ---> broadcast {}
-// related anime []
-// recommendations []
-// rating
-// num_episodes
 export default DetailScreen;

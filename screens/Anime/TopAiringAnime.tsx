@@ -18,11 +18,6 @@ import { RootState } from '../../store/index';
 import { getAnimeData, getAnimeDetails } from '../../store/Anime/Anime-Actions';
 import { AnimeActions } from '../../store/Anime/Anime-Slice';
 import { ListingItem, TopAirNavProps } from '../../types/types';
-import {
-	SharedElement,
-	SharedElementTransition,
-	nodeFromRef
-} from 'react-native-shared-element';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -76,8 +71,8 @@ const TopAiringAnime = () => {
 								textAlign='center'
 								fontSize='3xl'
 								fontWeight={700}
-								mb={2}
-								fontFamily={'mont-bold'}
+								my={1}
+								fontFamily={'mont-medium'}
 							>
 								Top Airing Anime
 							</Text>
