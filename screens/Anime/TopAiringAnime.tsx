@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { Box, Heading, HStack, Text, VStack } from 'native-base';
+import { Text } from 'native-base';
 import {
 	ScrollView,
 	TouchableOpacity,

@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 import { TopAirNavProps } from '../types/types';
 import SnapCarousel from 'react-native-snap-carousel';
 import * as Animatable from 'react-native-animatable';
+import * as Haptics from 'expo-haptics';
 
 const { width, height } = Dimensions.get('window');
 const ITEM_SIZE = width * 0.6;
@@ -59,6 +60,7 @@ const Carousel = ({ animeTop5, nav, getDetails }: CarouselProps) => {
 							width: ITEM_SIZE
 						}}
 						onPress={() => {
+							Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
 							dispatch(getDetails(anime.id));
 							nav.navigate('Details', { anime });
 						}}

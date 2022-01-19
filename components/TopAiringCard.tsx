@@ -12,7 +12,7 @@ interface ProductProps {
 	rank: number;
 }
 
-const Product = ({ title, image, rank }: ProductProps) => {
+const TopAiringCard = ({ title, image, rank }: ProductProps) => {
 	return (
 		<Animatable.View animation='fadeInUp' delay={1000}>
 			<Image
@@ -73,4 +73,4 @@ const Product = ({ title, image, rank }: ProductProps) => {
 	);
 };
 
-export default Product;
+export default TopAiringCard;

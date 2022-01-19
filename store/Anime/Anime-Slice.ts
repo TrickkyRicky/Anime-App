@@ -85,6 +85,7 @@ const AnimeSlice = createSlice({
 		setTopAiringReset(state) {
 			state.topAiring.anime = [];
 			state.topUpcoming.anime = [];
+			state.topMovies.anime = [];
 		}
 	}
 });
