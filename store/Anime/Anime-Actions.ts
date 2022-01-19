@@ -11,7 +11,7 @@ export const getAnimeData = (type: string) => {
 				`https://api.myanimelist.net/v2/anime/ranking?ranking_type=${type}&limit=14`,
 				{
 					headers: { 'X-MAL-Client-ID': CLIENT_ID }
-				}
+				} 
 			);
 			if (res.status !== 200) {
 				throw new Error(`Failed to fetch Top ${type}`);

@@ -19,6 +19,7 @@ const Product = ({ title, image }: ProductProps) => {
 					source={{
 						uri: image
 					}}
+					
 					style={{
 						borderRadius: 15,
 						width: screenWidth * 0.9,

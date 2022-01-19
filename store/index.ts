@@ -6,7 +6,7 @@ import MangaSlice from './Manga/Manga-Slice';
 const rootReducer = combineReducers({
 	Anime: AnimeSlice.reducer,
 	Manga: MangaSlice.reducer
-});
+}); 
 
 const store = configureStore({
 	reducer: rootReducer
