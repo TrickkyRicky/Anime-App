@@ -12,7 +12,7 @@ import UpcomingHeader from '../../components/UpcomingHeader';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
-
+ 
 const UpcomingAnime = () => {
 	const dispatch = useDispatch();
 	const navigation = useNavigation<TopAirNavProps>();

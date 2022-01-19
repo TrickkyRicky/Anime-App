@@ -17,7 +17,7 @@ interface CarouselProps {
 	nav: TopAirNavProps;
 	getDetails: (data: number) => void;
 }
-
+ 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 

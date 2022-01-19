@@ -30,7 +30,7 @@ const TopAiringAnime = () => {
 		anime: useSelector((state: RootState) => state.Anime.topAiring.anime),
 		anime5: useSelector((state: RootState) => state.Anime.topAiring.anime5)
 	};
-
+ 
 	useEffect(() => {
 		dispatch(AnimeActions.setTopAiringReset());
 		dispatch(getAnimeData('airing'));

@@ -7,7 +7,7 @@ interface Loader {
 
 const AnimeSlice = createSlice({
 	name: 'Anime',
-	initialState: {
+	initialState: { 
 		topAiring: {
 			anime: [] as any[],
 			anime5: [] as any[],
@@ -28,7 +28,9 @@ const AnimeSlice = createSlice({
 		},
 		mostPopular: {
 			anime: [] as any[],
-			animeLoader: false as boolean
+			animeLoader: false as boolean,
+			animeWithoutFirst: [] as any[],
+			firstAnime: [] as any[]
 		},
 		// details will be an object an not an array
 		animeDetails: {
@@ -77,6 +79,8 @@ const AnimeSlice = createSlice({
 		},
 		setMostPopular(state, action: PayloadAction<any[]>) {
 			state.mostPopular.anime = [...state.mostPopular.anime, ...action.payload];
+			state.mostPopular.animeWithoutFirst = [...action.payload].slice(1); 
+			state.mostPopular.firstAnime = [...action.payload].slice(0, 1);
 		},
 		// change later details will be an object
 		setAnimeDetails(state, action: PayloadAction<{}>) {
