@@ -18,8 +18,10 @@ const PopularAnime = () => {
 
 	const popularAnime = {
 		anime: useSelector((state: RootState) => state.Anime.mostPopular.anime),
-		animeRest: useSelector((state: RootState) => state.Anime.mostPopular.animeWithoutFirst),
-		firstAnime: useSelector((state: RootState) => state.Anime.mostPopular.firstAnime)
+		// animeRest: useSelector((state: RootState) => state.Anime.mostPopular.animeWithoutFirst),
+		firstAnime: useSelector(
+			(state: RootState) => state.Anime.mostPopular.firstAnime
+		)
 	};
 
 	useEffect(() => {
@@ -29,7 +31,7 @@ const PopularAnime = () => {
 	return (
 		<View style={{ width: '100%', backgroundColor: '#000' }}>
 			<FlatList
-				data={popularAnime.animeRest}
+				data={popularAnime.anime}
 				keyExtractor={(item: ListingItem['item']) => item.node.id.toString()}
 				showsVerticalScrollIndicator={false}
 				horizontal={false}
@@ -65,11 +67,14 @@ const PopularAnime = () => {
 							my={1}
 							fontFamily={'mont-extrabold'}
 						>
-							#1 Anime <FontAwesome5 name="trophy" size={24} color="#fff" />
+							#1 Anime <FontAwesome5 name='trophy' size={24} color='#fff' />
 						</Text>
-
 						<Spotlight
-							anime={popularAnime.firstAnime[0].node}
+							anime={
+								popularAnime.firstAnime[0]
+									? popularAnime.firstAnime[0].node
+									: null
+							}
 							nav={navigation}
 							getDetails={getAnimeDetails}
 						/>
@@ -78,6 +83,6 @@ const PopularAnime = () => {
 			/>
 		</View>
 	);
-}; 
+};
 
 export default PopularAnime;

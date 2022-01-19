@@ -43,6 +43,7 @@ const AnimeMovies = () => {
 					const anime = item.node;
 					return (
 						<TouchableOpacity
+							style={{ width: '50%' }}
 							onPress={() => {
 								dispatch(getAnimeDetails(anime.id));
 								navigation.navigate('Details', { anime });
@@ -53,10 +54,14 @@ const AnimeMovies = () => {
 								source={{
 									uri: anime?.main_picture?.medium
 								}}
-								width={25}
-								height={35}
+								style={{
+									width: 100,
+									height: 100
+								}}
 							/>
-							<Text>{anime.title}</Text>
+							<Text color='#fff' fontFamily={'mont-medium'} numberOfLines={1}>
+								{anime.title}
+							</Text>
 						</TouchableOpacity>
 					);
 				}}
