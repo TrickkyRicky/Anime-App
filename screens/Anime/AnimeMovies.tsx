@@ -31,7 +31,6 @@ const AnimeMovies = () => {
     dispatch(AnimeActions.setTopAiringReset());
     dispatch(getAnimeData("movie"));
   }, []);
-  // console.log(topMovies.anime);
 
   return (
     <View style={{ width: "100%", backgroundColor: "#52376A", flex: 1 }}>
@@ -43,7 +42,12 @@ const AnimeMovies = () => {
           const anime = item.node;
           return (
             <TouchableOpacity
-              style={{ width: "50%" }}
+              style={{
+                width: "50%",
+                justifyContent: "center",
+                alignItems: "center",
+                marginVertical: 10,
+              }}
               onPress={() => {
                 dispatch(getAnimeDetails(anime.id));
                 navigation.navigate("Details", { anime });
@@ -55,16 +59,39 @@ const AnimeMovies = () => {
                   uri: anime?.main_picture?.medium,
                 }}
                 style={{
-                  width: 100,
-                  height: 100,
+                  borderRadius: 10,
+                  width: screenWidth * 0.4,
+                  height: 250,
+                  resizeMode: "cover",
+                  marginTop: 5,
                 }}
               />
-              <Text color="#fff" fontFamily={"mont-medium"} numberOfLines={1}>
+              <Text
+                color="#fff"
+                fontSize="sm"
+                width={screenWidth * 0.4}
+                fontFamily={"mont-medium"}
+                numberOfLines={1}
+              >
                 {anime.title}
               </Text>
             </TouchableOpacity>
           );
         }}
+        ListHeaderComponent={() => (
+          <>
+            <Text
+              color="#fff"
+              textAlign="center"
+              fontSize="3xl"
+              fontWeight={700}
+              my={1}
+              fontFamily={"mont-extrabold"}
+            >
+              Top Movies
+            </Text>
+          </>
+        )}
       />
     </View>
   );

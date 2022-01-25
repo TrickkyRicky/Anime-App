@@ -14,6 +14,7 @@ import * as Animatable from "react-native-animatable";
 
 import Genres from "./Genres";
 import DetailSubTitle from "./DetailSubTItle";
+import Details_Rel_Rec from "./Details_Rel_Rec";
 import { AntDesign } from "@expo/vector-icons";
 
 type Props = {
@@ -43,7 +44,15 @@ const DetailsInfo = ({
   const [isLiked, setIsLiked] = useState(false);
 
   const animation = React.useRef(null);
+  const scrollRef = useRef<ScrollView>(null);
   const isFirstRun = React.useRef(true);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });
+  }, []);
 
   return (
     <View
@@ -74,6 +83,7 @@ const DetailsInfo = ({
           style={{ height: height * 0.35 }}
           alwaysBounceVertical={true}
           bounces={true}
+          ref={scrollRef}
         >
           <VStack>
             <HStack>
@@ -182,6 +192,17 @@ const DetailsInfo = ({
               ? animeDetails?.details?.synopsis
               : "No Description Available"}
           </Text>
+
+          <Details_Rel_Rec
+            array={animeDetails?.details?.related_anime}
+            header="Related Anime:"
+            colorScheme={colorScheme}
+          />
+          <Details_Rel_Rec
+            array={animeDetails?.details?.recommendations}
+            header="Recommended Anime:"
+            colorScheme={colorScheme}
+          />
         </ScrollView>
         <View style={{ height: 5 }} />
       </Animatable.View>

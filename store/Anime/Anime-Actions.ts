@@ -43,13 +43,13 @@ export const getAnimeData = (type: string) => {
   };
 };
 
-export const getSeasonalAnimeData = (season: string, year: string) => {
+export const getSeasonalAnimeData = (year: number, season: string) => {
   return async (dispatch: any) => {
     dispatch(AnimeActions.setLoader({ choice: "season", loading: true }));
 
     const getData = async () => {
       const res = await fetch(
-        `https://api.myanimelist.net/v2/anime/season/${year}/${season}`,
+        `https://api.myanimelist.net/v2/anime/season/${year}/${season}?limit=14`,
         {
           headers: { "X-MAL-Client-ID": CLIENT_ID },
         }
@@ -62,7 +62,10 @@ export const getSeasonalAnimeData = (season: string, year: string) => {
 
     try {
       const result = await getData();
-      dispatch(AnimeActions.setTopSeasonal(result.data));
+
+      dispatch(
+        AnimeActions.setTopSeasonal({ season: season, data: result.data })
+      );
       dispatch(AnimeActions.setLoader({ choice: "season", loading: false }));
     } catch (err) {
       dispatch(AnimeActions.setLoader({ choice: "season", loading: false }));
@@ -71,9 +74,13 @@ export const getSeasonalAnimeData = (season: string, year: string) => {
   };
 };
 
-export const getAnimeDetails = (id: number) => {
+export const getAnimeDetails = (id: number, is2 = false) => {
   return async (dispatch: any) => {
-    dispatch(AnimeActions.setLoader({ choice: "animeD", loading: true }));
+    if (!is2)
+      dispatch(AnimeActions.setLoader({ choice: "animeD", loading: true }));
+    else {
+      dispatch(AnimeActions.setLoader({ choice: "animeD2", loading: true }));
+    }
 
     const getData = async () => {
       const res = await fetch(
@@ -90,10 +97,16 @@ export const getAnimeDetails = (id: number) => {
 
     try {
       const result = await getData();
-      dispatch(AnimeActions.setAnimeDetails(result));
-      dispatch(AnimeActions.setLoader({ choice: "animeD", loading: false }));
+      if (!is2) {
+        dispatch(AnimeActions.setAnimeDetails(result));
+        dispatch(AnimeActions.setLoader({ choice: "animeD", loading: false }));
+      } else {
+        dispatch(AnimeActions.setAnimeDetails2(result));
+        dispatch(AnimeActions.setLoader({ choice: "animeD2", loading: false }));
+      }
     } catch (err) {
       dispatch(AnimeActions.setLoader({ choice: "animeD", loading: false }));
+      dispatch(AnimeActions.setLoader({ choice: "animeD2", loading: false }));
       console.log(err);
     }
   };
