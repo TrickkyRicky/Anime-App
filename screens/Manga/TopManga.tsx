@@ -1,12 +1,124 @@
-import React from 'react';
-import { Box, HStack, ScrollView, Text, VStack } from 'native-base';
-import { Dimensions } from 'react-native';
+import React, { useEffect } from "react";
+import { Box, HStack, Text, VStack } from "native-base";
+import {
+  View,
+  Dimensions,
+  ScrollView,
+  TouchableOpacity,
+  FlatList,
+  Image,
+} from "react-native";
+import * as Haptics from "expo-haptics";
+import { LinearGradient } from "expo-linear-gradient";
 
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { RootState } from "../../store/index";
+import { getMangaData, getMangaDetails } from "../../store/Manga/Manga-Actions";
+import { MangaActions } from "../../store/Manga/Manga-Slice";
+import { ListingItem, TopAirNavProps } from "../../types/types";
+
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get("window").height;
 
 const TopManga = () => {
-	return <Box flex={1} bg='#3730a3' p={2}></Box>;
+  const dispatch = useDispatch();
+  const navigation = useNavigation<TopAirNavProps>();
+
+  const topManga = {
+    manga: useSelector((state: RootState) => state.Manga.topManga.manga),
+  };
+
+  useEffect(() => {
+    dispatch(MangaActions.setMangaReset());
+    dispatch(getMangaData("manga"));
+  }, []);
+  // console.log(topManga.manga);
+
+  return (
+    <LinearGradient
+      colors={["#52376A", "#52376A", "#000"]}
+      style={{ width: "100%", backgroundColor: "#52376A" }}
+    >
+      <FlatList
+        data={topManga.manga}
+        keyExtractor={(item) => item.node.id.toString()}
+        showsVerticalScrollIndicator={true}
+        renderItem={({ item }) => {
+          const manga = item.node;
+          return (
+            <TouchableOpacity
+              activeOpacity={0.5}
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingVertical: 10,
+              }}
+              onPress={() => {
+                dispatch(getMangaDetails(manga.id));
+                navigation.navigate("MangaDetails", { manga });
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+              }}
+            >
+              <Image
+                source={{
+                  uri: manga?.main_picture?.medium,
+                }}
+                style={{
+                  borderRadius: 10,
+                  width: screenWidth * 0.4,
+                  height: 250,
+                  resizeMode: "cover",
+                  marginRight: 15,
+                }}
+              />
+              <VStack>
+                <Text
+                  mb={2}
+                  numberOfLines={2}
+                  width={screenWidth * 0.4}
+                  fontFamily={"mont-bold"}
+                  fontSize="lg"
+                  color="#fff"
+                >
+                  {manga.title}
+                </Text>
+                <Text fontFamily={"mont-light"} fontSize="lg" color="#fff">
+                  Rank:{" "}
+                  <Text fontFamily={"mont-medium"} fontSize="lg" color="#fff">
+                    {item?.ranking?.rank}
+                  </Text>
+                </Text>
+              </VStack>
+            </TouchableOpacity>
+          );
+        }}
+        ListHeaderComponent={() => (
+          <>
+            <View>
+              <Text
+                color="#fff"
+                textAlign="center"
+                fontSize="3xl"
+                fontWeight={700}
+                my={1}
+                fontFamily={"mont-bold"}
+              >
+                Top Manga
+              </Text>
+            </View>
+
+            {/* <Carousel
+              animeTop5={topAiring.anime5}
+              nav={navigation}
+              getDetails={getAnimeDetails}
+            /> */}
+          </>
+        )}
+      />
+    </LinearGradient>
+  );
 };
 
 export default TopManga;

@@ -46,7 +46,7 @@ export const getAnimeData = (type: string) => {
 export const getSeasonalAnimeData = (year: number, season: string) => {
   return async (dispatch: any) => {
     dispatch(AnimeActions.setLoader({ choice: "season", loading: true }));
-
+    let status = null;
     const getData = async () => {
       const res = await fetch(
         `https://api.myanimelist.net/v2/anime/season/${year}/${season}?limit=14`,
@@ -54,20 +54,27 @@ export const getSeasonalAnimeData = (year: number, season: string) => {
           headers: { "X-MAL-Client-ID": CLIENT_ID },
         }
       );
+      status = res.status;
       if (res.status !== 200) {
-        throw new Error(`Failed to fetch Top Seasonal ${season} Anime`);
+        throw new Error(`Failed to fetch Top ${year} Seasonal ${season} Anime`);
       }
       return res.json();
     };
 
     try {
       const result = await getData();
-
       dispatch(
-        AnimeActions.setTopSeasonal({ season: season, data: result.data })
+        AnimeActions.setTopSeasonal({
+          season: season,
+          data: result.data,
+          year: result.season.year,
+        })
       );
       dispatch(AnimeActions.setLoader({ choice: "season", loading: false }));
     } catch (err) {
+      if (status === 404) {
+        dispatch(getSeasonalAnimeData(year - 1, season));
+      }
       dispatch(AnimeActions.setLoader({ choice: "season", loading: false }));
       console.log(err);
     }

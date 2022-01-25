@@ -18,6 +18,7 @@ import { RootState } from "../../store/index";
 import { getAnimeData, getAnimeDetails } from "../../store/Anime/Anime-Actions";
 import { AnimeActions } from "../../store/Anime/Anime-Slice";
 import { ListingItem, TopAirNavProps } from "../../types/types";
+import { LinearGradient } from "expo-linear-gradient";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
@@ -37,7 +38,10 @@ const TopAiringAnime = () => {
   }, []);
 
   return (
-    <View style={{ width: "100%", backgroundColor: "#52376A" }}>
+    <LinearGradient
+      colors={["#52376A", "#000"]}
+      style={{ width: "100%", backgroundColor: "#52376A" }}
+    >
       <FlatList
         data={topAiring.anime}
         keyExtractor={(item: ListingItem["item"]) => item.node.id.toString()}
@@ -99,7 +103,7 @@ const TopAiringAnime = () => {
           borderRadius: 32,
         }}
       />
-    </View>
+    </LinearGradient>
   );
 };
 

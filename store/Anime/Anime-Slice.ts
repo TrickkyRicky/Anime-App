@@ -8,6 +8,7 @@ interface Loader {
 interface Season {
   season: string;
   data: [];
+  year: string;
 }
 
 const AnimeSlice = createSlice({
@@ -24,10 +25,22 @@ const AnimeSlice = createSlice({
       animeLoader: false as boolean,
     },
     topSeasonal: {
-      fall: [] as any[],
-      spring: [] as any[],
-      winter: [] as any[],
-      summer: [] as any[],
+      winter: {
+        data: [] as any[],
+        year: "" as string,
+      },
+      spring: {
+        data: [] as any[],
+        year: "" as string,
+      },
+      summer: {
+        data: [] as any[],
+        year: "" as string,
+      },
+      fall: {
+        data: [] as any[],
+        year: "" as string,
+      },
       animeLoader: false as boolean,
     },
     topMovies: {
@@ -92,29 +105,33 @@ const AnimeSlice = createSlice({
     setTopSeasonal(state, action: PayloadAction<Season>) {
       switch (action.payload.season) {
         case "winter":
-          state.topSeasonal.winter = [
-            ...state.topSeasonal.winter,
+          state.topSeasonal.winter.data = [
+            ...state.topSeasonal.winter.data,
             ...action.payload.data,
           ];
+          state.topSeasonal.winter.year = action.payload.year;
           break;
 
         case "spring":
-          state.topSeasonal.spring = [
-            ...state.topSeasonal.spring,
+          state.topSeasonal.spring.data = [
+            ...state.topSeasonal.spring.data,
             ...action.payload.data,
           ];
-          break;
-        case "fall":
-          state.topSeasonal.fall = [
-            ...state.topSeasonal.fall,
-            ...action.payload.data,
-          ];
+          state.topSeasonal.spring.year = action.payload.year;
           break;
         case "summer":
-          state.topSeasonal.summer = [
-            ...state.topSeasonal.summer,
+          state.topSeasonal.summer.data = [
+            ...state.topSeasonal.summer.data,
             ...action.payload.data,
           ];
+          state.topSeasonal.summer.year = action.payload.year;
+          break;
+        case "fall":
+          state.topSeasonal.fall.data = [
+            ...state.topSeasonal.fall.data,
+            ...action.payload.data,
+          ];
+          state.topSeasonal.fall.year = action.payload.year;
           break;
       }
     },
@@ -137,10 +154,12 @@ const AnimeSlice = createSlice({
       state.topUpcoming.anime = [];
       state.topMovies.anime = [];
       state.mostPopular.anime = [];
-      state.topSeasonal.winter = [];
-      state.topSeasonal.fall = [];
-      state.topSeasonal.spring = [];
-      state.topSeasonal.summer = [];
+    },
+    setTopSeasonalReset(state) {
+      state.topSeasonal.winter.data = [];
+      state.topSeasonal.fall.data = [];
+      state.topSeasonal.spring.data = [];
+      state.topSeasonal.summer.data = [];
     },
   },
 });

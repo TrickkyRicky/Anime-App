@@ -9,6 +9,7 @@ import { ListingItem, TopAirNavProps } from "../../types/types";
 import { useNavigation } from "@react-navigation/native";
 import TopUpcomingCard from "../../components/TopUpcoming/TopUpcomingCard";
 import UpcomingHeader from "../../components/TopUpcoming/UpcomingHeader";
+import { LinearGradient } from "expo-linear-gradient";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
@@ -27,7 +28,10 @@ const UpcomingAnime = () => {
   }, []);
 
   return (
-    <View style={{ width: "100%", backgroundColor: "#52376A", flex: 1 }}>
+    <LinearGradient
+      colors={["#52376A", "#000"]}
+      style={{ width: "100%", backgroundColor: "#52376A", flex: 1 }}
+    >
       <FlatList
         data={topUpcoming.anime}
         keyExtractor={(item: ListingItem["item"]) => item.node.id.toString()}
@@ -75,7 +79,7 @@ const UpcomingAnime = () => {
           </>
         )}
       />
-    </View>
+    </LinearGradient>
   );
 };
 
