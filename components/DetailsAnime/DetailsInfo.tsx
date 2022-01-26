@@ -52,7 +52,7 @@ const DetailsInfo = ({
       y: 0,
       animated: true,
     });
-  }, []);
+  });
 
   return (
     <View
