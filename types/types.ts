@@ -25,6 +25,9 @@ type navList = {
   Details2: {
     anime: ListingItem["item"]["node"];
   };
+  MangaDetails: {
+    manga: ListingItem["item"]["node"];
+  };
 };
 // This Type is used for useNavigation in TopAiringAnime
 export type TopAirNavProps = StackNavigationProp<navList, "Details">;
@@ -34,6 +37,11 @@ export type TopAirNavProps = StackNavigationProp<navList, "Details">;
 type previousScreenProps = StackNavigationProp<navList, "Details">;
 export type DetailNavProps = {
   navigation: previousScreenProps;
-  route: { params: { anime: ListingItem["item"]["node"] } };
+  route: {
+    params: {
+      anime: ListingItem["item"]["node"];
+      manga: ListingItem["item"]["node"];
+    };
+  };
 };
 /* ---------------- DETAIL SCREEN NAV PROP ---------------- */

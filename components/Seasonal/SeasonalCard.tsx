@@ -1,29 +1,51 @@
-import { View, ImageBackground, TouchableOpacity } from "react-native";
+import React from "react";
 import { Text } from "native-base";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import { View, ImageBackground, TouchableOpacity } from "react-native";
+
+import * as Haptics from "expo-haptics";
+import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { getAnimeDetails } from "../../store/Anime/Anime-Actions";
+import { TopAirNavProps } from "../../types/types";
 
 type Props = {
+  id: number;
   title: string;
   image: string;
   season: string;
 };
 
-const SeasonalCard = ({ title, image, season }: Props) => {
+const SeasonalCard = ({ id, title, image, season }: Props) => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation<TopAirNavProps>();
+  const anime = {
+    id: id,
+    title: title,
+    main_picture: { large: image, medium: image },
+  };
   return (
-    <TouchableOpacity style={{ marginRight: 15 }}>
+    <TouchableOpacity
+      onPress={() => {
+        dispatch(getAnimeDetails(id));
+        navigation.navigate("Details", { anime });
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+      }}
+      style={{ marginRight: 15 }}
+    >
       <ImageBackground
         imageStyle={{ borderRadius: 10 }}
         style={{ width: 150, height: 200 }}
         source={{ uri: image }}
       >
         <LinearGradient
-          colors={["rgba(0, 0, 0, .2)", "rgba(0, 0, 0, .9)"]}
+          colors={["transparent", "rgba(0, 0, 0, .5)", "rgba(0, 0, 0, .95)"]}
           style={{
             position: "absolute",
             width: "100%",
             height: 60,
             bottom: 0,
+            borderRadius: 10,
           }}
         />
         <View

@@ -22,9 +22,10 @@ const SeasonalList = ({ array, title, season }: Props) => {
         keyExtractor={(item) => item.node.id.toString()}
         renderItem={({ item }) => (
           <SeasonalCard
-            image={item.node.main_picture.medium}
-            title={item.node.title}
             season={season}
+            id={item.node.id}
+            title={item.node.title}
+            image={item.node.main_picture.medium}
           />
         )}
       />

@@ -10,7 +10,6 @@ import { DetailNavProps } from "../types/types";
 import { RootState } from "../store/index";
 
 import * as Haptics from "expo-haptics";
-// import FadingEdge from 'react-native-fading-edge';
 
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");

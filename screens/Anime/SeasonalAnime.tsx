@@ -38,7 +38,7 @@ const SeasonalAnime = () => {
           Seasonal Anime
         </Text>
 
-        <View style={{ paddingLeft: 20, paddingBottom: 30 }}>
+        <View style={{ paddingLeft: 20, paddingBottom: 30, marginTop: 10 }}>
           <Text
             color="#fff"
             fontSize="xl"

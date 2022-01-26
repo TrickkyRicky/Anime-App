@@ -33,7 +33,6 @@ const TopManga = () => {
     dispatch(MangaActions.setMangaReset());
     dispatch(getMangaData("manga"));
   }, []);
-  // console.log(topManga.manga);
 
   return (
     <LinearGradient

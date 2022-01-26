@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
 import {
   View,
   FlatList,
@@ -7,15 +8,20 @@ import {
   ImageBackground,
 } from "react-native";
 import { Text } from "native-base";
-
-import { LinearGradient } from "expo-linear-gradient";
 import SeasonalList from "./SeasonalList";
-import { RootState } from "../../store";
+import { LinearGradient } from "expo-linear-gradient";
+
 import { getSeason } from "../../utility/utility";
-import { relative } from "path";
+import { getAnimeDetails } from "../../store/Anime/Anime-Actions";
+
+import * as Haptics from "expo-haptics";
+import { RootState } from "../../store";
+import { TopAirNavProps } from "../../types/types";
 
 const SeasonOrganize = () => {
   const season = getSeason();
+  const dispatch = useDispatch();
+  const navigation = useNavigation<TopAirNavProps>();
 
   const seasonAnime = {
     winter: useSelector((state: RootState) => {
@@ -154,7 +160,13 @@ const SeasonOrganize = () => {
         renderItem={({ item }) => {
           const anime = item.node;
           return (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                dispatch(getAnimeDetails(anime.id));
+                navigation.navigate("Details", { anime });
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+              }}
+            >
               <ImageBackground
                 source={{ uri: anime?.main_picture?.large }}
                 resizeMode="cover"
@@ -167,12 +179,17 @@ const SeasonOrganize = () => {
                 imageStyle={{ borderRadius: 5 }}
               >
                 <LinearGradient
-                  colors={["rgba(0, 0, 0, .2)", "rgba(0, 0, 0, .9)"]}
+                  colors={[
+                    "transparent",
+                    "rgba(0, 0, 0, .5)",
+                    "rgba(0, 0, 0, .95)",
+                  ]}
                   style={{
                     position: "absolute",
                     width: "100%",
                     height: 60,
                     bottom: 0,
+                    borderRadius: 5,
                   }}
                 />
                 <View

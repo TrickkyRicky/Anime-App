@@ -171,16 +171,6 @@ const DetailsInfo = ({
               colorScheme={colorScheme}
             />
           </VStack>
-          {/* <AntDesign
-							name={filled ? 'heart' : 'hearto'}
-							size={40}
-							color='#e03a3a'
-							onPress={() => {
-								setFilled(!filled);
-								Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
-							}}
-							style={{ marginRight: 5 }}
-						/> */}
 
           <Text
             fontSize="sm"
@@ -203,8 +193,8 @@ const DetailsInfo = ({
             header="Recommended Anime:"
             colorScheme={colorScheme}
           />
+          <View style={{ paddingVertical: 15 }} />
         </ScrollView>
-        <View style={{ height: 5 }} />
       </Animatable.View>
     </View>
   );

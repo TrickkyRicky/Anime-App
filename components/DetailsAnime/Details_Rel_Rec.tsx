@@ -24,19 +24,22 @@ interface Props {
 const Details_Rel_Rec = ({ array, header, colorScheme }: Props) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<TopAirNavProps>();
+
   return (
     <>
-      <Text
-        style={{
-          color: colorScheme === "dark" ? "#654582" : "#52376A",
-          fontWeight: "500",
-          fontFamily: "mont-bold",
-          fontSize: 15,
-          marginVertical: 10,
-        }}
-      >
-        {header}
-      </Text>
+      {Array.isArray(array) && array.length ? (
+        <Text
+          style={{
+            color: colorScheme === "dark" ? "#654582" : "#52376A",
+            fontWeight: "500",
+            fontFamily: "mont-bold",
+            fontSize: 15,
+            marginVertical: 10,
+          }}
+        >
+          {header}
+        </Text>
+      ) : null}
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}

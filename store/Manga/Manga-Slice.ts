@@ -30,7 +30,7 @@ const MangaSlice = createSlice({
     },
     // details will be an object an not an array
     mangaDetails: {
-      details: {},
+      details: {} as any,
       detailLoader: false as boolean,
     },
   },
