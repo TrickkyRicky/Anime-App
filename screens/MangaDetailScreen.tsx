@@ -14,9 +14,21 @@ import { RootState } from "../store/index";
 import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
 import Genres from "../components/DetailsAnime/Genres";
+import Carousel from "react-native-snap-carousel";
 
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
+
+const imgLoad = [
+  {
+    large:
+      "https://thumbs.gfycat.com/BackIllinformedAsianelephant-size_restricted.gif",
+  },
+];
+type CarouselType = {
+  item: { large: string };
+  index: number;
+};
 
 const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
   const mangaDetails = {
@@ -94,7 +106,31 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
             <Text color="#fff">{mangaDetails?.details?.start_date}</Text>
           </VStack>
         </VStack>
-        <Image
+        {/* Snap carousel goes here */}
+        <Carousel
+          data={mangaDetails.loader ? imgLoad : mangaDetails.details.pictures}
+          // data={mangaDetails?.details?.pictures}
+          sliderWidth={screenWidth * 0.75}
+          itemWidth={screenWidth * 0.75}
+          layout="default"
+          autoplay={true}
+          renderItem={({ item, index }: CarouselType) => {
+            return (
+              <Image
+                source={{
+                  uri: item?.large,
+                }}
+                style={{
+                  height: screenHeight * 0.55,
+                  width: screenWidth * 0.75,
+                  borderBottomLeftRadius: 30,
+                  resizeMode: "cover",
+                }}
+              />
+            );
+          }}
+        />
+        {/* <Image
           source={{
             uri: manga?.main_picture?.large,
           }}
@@ -104,7 +140,7 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
             borderBottomLeftRadius: 30,
             resizeMode: "cover",
           }}
-        />
+        /> */}
       </HStack>
 
       <Heading size="xl" pl={3} color="#fff" fontFamily={"mont-bold"}>

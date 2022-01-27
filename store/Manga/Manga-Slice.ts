@@ -13,7 +13,8 @@ const MangaSlice = createSlice({
       mangaLoader: false as boolean,
     },
     topNovels: {
-      manga: [] as any[],
+      novel: [] as any[],
+      novel5: [] as any,
       mangaLoader: false as boolean,
     },
     topManhua: {
@@ -61,7 +62,9 @@ const MangaSlice = createSlice({
       state.topManga.manga = [...state.topManga.manga, ...action.payload];
     },
     setTopNovels(state, action: PayloadAction<any[]>) {
-      state.topNovels.manga = [...state.topNovels.manga, ...action.payload];
+      state.topNovels.novel = [...state.topNovels.novel, ...action.payload];
+      state.topNovels.novel.splice(0, 5);
+      state.topNovels.novel5 = [...action.payload].slice(0, 5);
     },
     setTopManhua(state, action: PayloadAction<any[]>) {
       state.topManhua.manga = [...state.topManhua.manga, ...action.payload];
@@ -77,6 +80,10 @@ const MangaSlice = createSlice({
     },
     setMangaReset(state) {
       state.topManga.manga = [];
+    },
+    setMangaReset2(state) {
+      state.topNovels.novel = [];
+      state.topNovels.novel5 = [];
     },
   },
 });
