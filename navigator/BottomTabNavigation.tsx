@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MyTabsAnime, MyTabsManga } from "./TopTabNavigation";
 import { Ionicons } from "@expo/vector-icons";
 import { getHeaderTitle } from "@react-navigation/elements";
-import { Dimensions, View, Image } from "react-native";
+import { Dimensions, View, Image, useColorScheme } from "react-native";
 import { Text } from "native-base";
 
 const screenWidth = Dimensions.get("window").width;
@@ -44,6 +44,7 @@ const CustomHomeHeader = () => {
 };
 
 const BottomTabNavigation = () => {
+  const colorScheme = useColorScheme();
   return (
     <Tab.Navigator
       initialRouteName="Anime"
@@ -60,8 +61,10 @@ const BottomTabNavigation = () => {
         },
         tabBarActiveTintColor: "#CCC",
         tabBarInactiveTintColor: "#fff",
-        tabBarActiveBackgroundColor: "#000", //#52376A
-        tabBarInactiveBackgroundColor: "#000",
+        tabBarActiveBackgroundColor:
+          colorScheme === "dark" ? "#000" : "#52376A",
+        tabBarInactiveBackgroundColor:
+          colorScheme === "dark" ? "#000" : "#52376A",
         tabBarStyle: {
           borderTopWidth: 0,
           elevation: 0,

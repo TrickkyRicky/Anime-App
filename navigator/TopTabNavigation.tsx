@@ -10,7 +10,6 @@ import TopManga from "../screens/Manga/TopManga";
 import TopNovels from "../screens/Manga/TopNovels";
 import TopManhua from "../screens/Manga/TopManhua";
 import TopManhwa from "../screens/Manga/TopManhwa";
-import PopularManga from "../screens/Manga/PopularManga";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Tab = createMaterialTopTabNavigator();
@@ -45,7 +44,6 @@ export const MyTabsManga = () => {
       <Tab.Screen name="Top Novels" component={TopNovels} />
       <Tab.Screen name="Top Manhua" component={TopManhua} />
       <Tab.Screen name="Top Manhwa" component={TopManhwa} />
-      <Tab.Screen name="Most Popular" component={PopularManga} />
     </Tab.Navigator>
   );
 };

@@ -23,13 +23,9 @@ const MangaSlice = createSlice({
     },
     topManhwa: {
       manga: [] as any[],
+      manga5: [] as any[],
       mangaLoader: false as boolean,
     },
-    mostPopular: {
-      manga: [] as any[],
-      mangaLoader: false as boolean,
-    },
-    // details will be an object an not an array
     mangaDetails: {
       details: {} as any,
       detailLoader: false as boolean,
@@ -50,9 +46,6 @@ const MangaSlice = createSlice({
         case "manhwa":
           state.topManhwa.mangaLoader = action.payload.loading;
           break;
-        case "bypopularity":
-          state.mostPopular.mangaLoader = action.payload.loading;
-          break;
         case "mangaD":
           state.mangaDetails.detailLoader = action.payload.loading;
           break;
@@ -71,19 +64,26 @@ const MangaSlice = createSlice({
     },
     setTopManhwa(state, action: PayloadAction<any[]>) {
       state.topManhwa.manga = [...state.topManhwa.manga, ...action.payload];
-    },
-    setMostPopular(state, action: PayloadAction<any[]>) {
-      state.mostPopular.manga = [...state.mostPopular.manga, ...action.payload];
+      state.topManhwa.manga.splice(0, 5);
+      state.topManhwa.manga5 = [...action.payload].slice(0, 5);
     },
     setMangaDetails(state, action: PayloadAction<{}>) {
       state.mangaDetails.details = { ...action.payload };
     },
     setMangaReset(state) {
       state.topManga.manga = [];
+      state.topManhua.manga = [];
     },
     setMangaReset2(state) {
       state.topNovels.novel = [];
       state.topNovels.novel5 = [];
+    },
+    setMangaReset3(state) {
+      state.topManhua.manga = [];
+    },
+    setMangaReset4(state) {
+      state.topManhwa.manga = [];
+      state.topManhwa.manga5 = [];
     },
   },
 });

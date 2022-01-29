@@ -80,7 +80,7 @@ const DetailsInfo = ({
 
         <ScrollView
           showsVerticalScrollIndicator={false}
-          style={{ height: height * 0.35 }}
+          style={{ height: height * 0.42, paddingBottom: 35 }}
           alwaysBounceVertical={true}
           bounces={true}
           ref={scrollRef}
@@ -193,7 +193,7 @@ const DetailsInfo = ({
             header="Recommended Anime:"
             colorScheme={colorScheme}
           />
-          <View style={{ paddingVertical: 15 }} />
+          <View style={{ paddingVertical: 35 }} />
         </ScrollView>
       </Animatable.View>
     </View>

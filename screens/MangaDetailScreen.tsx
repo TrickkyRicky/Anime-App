@@ -15,6 +15,7 @@ import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
 import Genres from "../components/DetailsAnime/Genres";
 import Carousel from "react-native-snap-carousel";
+import Details_Rel_Rec from "../components/DetailsAnime/Details_Rel_Rec";
 
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
@@ -44,6 +45,7 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
   const spacing: number = 23;
   // console.log(mangaDetails.details.genres);
   const colorScheme = useColorScheme();
+  const iconColor = "#a653a4";
 
   return (
     <LinearGradient
@@ -55,7 +57,7 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
     >
       <HStack mb={5} alignItems="center" justifyContent="space-between">
         <VStack
-          space={3}
+          space={5}
           width={screenWidth * 0.25}
           alignItems="center"
           justifyContent="space-around"
@@ -73,15 +75,25 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
             }}
           />
           {/* Author */}
-          <VStack alignItems="center">
-            <FontAwesome5 name="book-reader" size={30} color="#CCC" />
+          <VStack alignItems="center" width={screenWidth * 0.2}>
+            <FontAwesome5 name="book-reader" size={30} color={iconColor} />
 
-            <Text numberOfLines={1} color="#fff">
+            <Text
+              fontFamily={"mont"}
+              textAlign="center"
+              numberOfLines={2}
+              color="#fff"
+            >
               {mangaDetails?.details?.authors
                 ? mangaDetails?.details?.authors[0]?.node?.first_name
                 : []}
             </Text>
-            <Text numberOfLines={1} color="#fff">
+            <Text
+              fontFamily={"mont"}
+              textAlign="center"
+              numberOfLines={2}
+              color="#fff"
+            >
               {mangaDetails?.details?.authors
                 ? mangaDetails?.details?.authors[0]?.node?.last_name
                 : []}
@@ -90,22 +102,27 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
 
           {/*  */}
           <VStack alignItems="center">
-            <MaterialIcons name="menu-book" size={30} color="#CCC" />
+            <MaterialIcons name="menu-book" size={30} color={iconColor} />
 
-            <Text fontSize="sm" color="#fff">
+            <Text fontFamily={"mont"} fontSize="sm" color="#fff">
               {mangaDetails?.details?.num_chapters}
             </Text>
-            <Text fontSize="sm" color="#fff">
+            <Text fontFamily={"mont"} fontSize="sm" color="#fff">
               Chapters
             </Text>
           </VStack>
 
           <VStack alignItems="center">
-            <FontAwesome5 name="calendar-day" size={30} color="#CCC" />
-            <Text color="#fff">Published</Text>
-            <Text color="#fff">{mangaDetails?.details?.start_date}</Text>
+            <FontAwesome5 name="calendar-day" size={30} color={iconColor} />
+            <Text fontFamily={"mont"} color="#fff">
+              Published:
+            </Text>
+            <Text fontFamily={"mont"} color="#fff">
+              {mangaDetails?.details?.start_date}
+            </Text>
           </VStack>
         </VStack>
+
         {/* Snap carousel goes here */}
         <Carousel
           data={mangaDetails.loader ? imgLoad : mangaDetails.details.pictures}
@@ -130,20 +147,9 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
             );
           }}
         />
-        {/* <Image
-          source={{
-            uri: manga?.main_picture?.large,
-          }}
-          style={{
-            height: screenHeight * 0.55,
-            width: screenWidth * 0.75,
-            borderBottomLeftRadius: 30,
-            resizeMode: "cover",
-          }}
-        /> */}
       </HStack>
 
-      <Heading size="xl" pl={3} color="#fff" fontFamily={"mont-bold"}>
+      <Heading size="lg" pl={3} color={iconColor} fontFamily={"mont-bold"}>
         {manga.title}
       </Heading>
       <View style={{ height: 60, paddingLeft: 10 }}>
@@ -156,6 +162,16 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
       </View>
       <ScrollView style={{ paddingHorizontal: 15 }}>
         <Text color="#CCC">{mangaDetails.details.synopsis}</Text>
+        <Details_Rel_Rec
+          array={mangaDetails?.details?.related_anime}
+          header="Related Manga:"
+          colorScheme={colorScheme}
+        />
+        <Details_Rel_Rec
+          array={mangaDetails?.details?.recommendations}
+          header="Recommended Manga:"
+          colorScheme={colorScheme}
+        />
         <View style={{ paddingVertical: 15 }} />
       </ScrollView>
     </LinearGradient>

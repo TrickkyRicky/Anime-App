@@ -8,7 +8,7 @@ export const getMangaData = (type: string) => {
 
     const getData = async () => {
       const res = await fetch(
-        `https://api.myanimelist.net/v2/manga/ranking?ranking_type=${type}&limit=14`,
+        `https://api.myanimelist.net/v2/manga/ranking?ranking_type=${type}&limit=26`,
         {
           headers: { "X-MAL-Client-ID": CLIENT_ID },
         }
@@ -33,9 +33,6 @@ export const getMangaData = (type: string) => {
           break;
         case "manhwa":
           dispatch(MangaActions.setTopManhwa(result.data));
-          break;
-        case "bypopularity":
-          dispatch(MangaActions.setMostPopular(result.data));
           break;
       }
       dispatch(MangaActions.setLoader({ choice: type, loading: false }));

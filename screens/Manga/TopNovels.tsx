@@ -51,6 +51,7 @@ const TopNovels = () => {
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => {
           const manga = item.node;
+          const { rank } = item.ranking;
           return (
             <TouchableOpacity
               style={{
@@ -72,15 +73,35 @@ const TopNovels = () => {
                   height: 250,
                 }}
               >
-                {/* <Text
-                color="#fff"
-                fontSize="sm"
-                // width={screenWidth * 0.4}
-                fontFamily={"mont-medium"}
-                numberOfLines={1}
-              >
-                {manga.title}
-              </Text> */}
+                <LinearGradient
+                  colors={[
+                    "transparent",
+                    "rgba(0, 0, 0, .6)",
+                    "rgba(0, 0, 0, 1)",
+                  ]}
+                  style={{
+                    position: "absolute",
+                    width: "100%",
+                    height: 45,
+                    bottom: 0,
+                  }}
+                />
+                <View
+                  style={{
+                    position: "absolute",
+                    bottom: 12,
+                    paddingHorizontal: 10,
+                  }}
+                >
+                  <Text
+                    color="#fff"
+                    fontSize="14"
+                    fontFamily="mont-bold"
+                    numberOfLines={1}
+                  >
+                    {rank}. {manga.title}
+                  </Text>
+                </View>
               </ImageBackground>
             </TouchableOpacity>
           );

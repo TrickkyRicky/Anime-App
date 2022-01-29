@@ -78,14 +78,14 @@ const TopManga = () => {
                   numberOfLines={2}
                   width={screenWidth * 0.4}
                   fontFamily={"mont-bold"}
-                  fontSize="lg"
+                  fontSize="xl"
                   color="#fff"
                 >
                   {manga.title}
                 </Text>
-                <Text fontFamily={"mont-light"} fontSize="lg" color="#fff">
+                <Text fontFamily={"mont-light"} fontSize="xl" color="#fff">
                   Rank:{" "}
-                  <Text fontFamily={"mont-medium"} fontSize="lg" color="#fff">
+                  <Text fontFamily={"mont-bold"} fontSize="xl" color="#fff">
                     {item?.ranking?.rank}
                   </Text>
                 </Text>
@@ -107,12 +107,6 @@ const TopManga = () => {
                 Top Manga
               </Text>
             </View>
-
-            {/* <Carousel
-              animeTop5={topAiring.anime5}
-              nav={navigation}
-              getDetails={getAnimeDetails}
-            /> */}
           </>
         )}
       />

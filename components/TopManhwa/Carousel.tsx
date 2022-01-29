@@ -15,16 +15,16 @@ import { LinearGradient } from "expo-linear-gradient";
 const { width, height } = Dimensions.get("window");
 
 interface CarouselProps {
-  novelTop5: any[];
+  manhwaTop5: any[];
   nav: TopAirNavProps;
   getDetails: (data: number) => void;
 }
 
-const Carousel = ({ novelTop5, nav, getDetails }: CarouselProps) => {
+const Carousel = ({ manhwaTop5, nav, getDetails }: CarouselProps) => {
   const dispatch = useDispatch();
   return (
     <SnapCarousel
-      data={novelTop5}
+      data={manhwaTop5}
       sliderWidth={width}
       itemWidth={width}
       layout="default"
@@ -51,7 +51,7 @@ const Carousel = ({ novelTop5, nav, getDetails }: CarouselProps) => {
               resizeMode="cover"
               style={{
                 width: width,
-                height: 250,
+                height: height * 0.6,
                 position: "relative",
               }}
             >
