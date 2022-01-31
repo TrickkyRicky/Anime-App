@@ -1,6 +1,7 @@
+import { dev } from "../../utility/dev";
 import { MangaActions } from "./Manga-Slice";
 
-const CLIENT_ID = "4b75af5e9466c3b143191b860c40c4eb";
+const CLIENT_ID = dev();
 
 export const getMangaData = (type: string) => {
   return async (dispatch: any) => {
