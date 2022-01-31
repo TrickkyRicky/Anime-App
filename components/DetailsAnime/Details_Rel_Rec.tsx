@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { getAnimeDetails } from "../../store/Anime/Anime-Actions";
 import { TopAirNavProps } from "../../types/types";
 import * as Haptics from "expo-haptics";
+import { getMangaDetails } from "../../store/Manga/Manga-Actions";
 
 interface Props {
   array: {
@@ -19,9 +20,10 @@ interface Props {
   }[];
   colorScheme: string | null | undefined;
   header: string;
+  isManga: boolean;
 }
 
-const Details_Rel_Rec = ({ array, header, colorScheme }: Props) => {
+const Details_Rel_Rec = ({ array, header, colorScheme, isManga }: Props) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<TopAirNavProps>();
 
@@ -46,12 +48,24 @@ const Details_Rel_Rec = ({ array, header, colorScheme }: Props) => {
         data={array}
         keyExtractor={(array) => array.node.id.toString()}
         renderItem={({ item }) => {
-          const anime = item.node;
+          let manga: any;
+          let anime: any;
+          if (isManga) {
+            manga = item.node;
+          } else {
+            anime = item.node;
+          }
+
           return (
             <TouchableOpacity
               onPress={() => {
-                dispatch(getAnimeDetails(anime.id, true));
-                navigation.navigate("Details2", { anime });
+                if (isManga) {
+                  dispatch(getMangaDetails(manga.id, true));
+                  navigation.navigate("MangaDetails2", { manga });
+                } else {
+                  dispatch(getAnimeDetails(anime.id, true));
+                  navigation.navigate("Details2", { anime });
+                }
                 Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
               }}
               style={{
@@ -63,7 +77,7 @@ const Details_Rel_Rec = ({ array, header, colorScheme }: Props) => {
             >
               <Image
                 source={{
-                  uri: anime?.main_picture?.medium,
+                  uri: item.node?.main_picture?.medium,
                 }}
                 style={{
                   borderRadius: 10,
@@ -82,7 +96,7 @@ const Details_Rel_Rec = ({ array, header, colorScheme }: Props) => {
                 }}
                 numberOfLines={1}
               >
-                {anime.title}
+                {item.node.title}
               </Text>
             </TouchableOpacity>
           );

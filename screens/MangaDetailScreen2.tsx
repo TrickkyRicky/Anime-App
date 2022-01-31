@@ -31,18 +31,17 @@ type CarouselType = {
   index: number;
 };
 
-const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
+const MangaDetailScreen2 = ({ navigation, route }: DetailNavProps) => {
   const mangaDetails = {
     details: useSelector(
-      (state: RootState) => state.Manga.mangaDetails.details
+      (state: RootState) => state.Manga.mangaDetails2.details
     ),
     loader: useSelector(
-      (state: RootState) => state.Manga.mangaDetails.detailLoader
+      (state: RootState) => state.Manga.mangaDetails2.detailLoader
     ),
   };
 
   const { manga } = route.params;
-  const spacing: number = 23;
   const colorScheme = useColorScheme();
   const iconColor = "#a653a4";
 
@@ -179,4 +178,4 @@ const MangaDetailScreen = ({ navigation, route }: DetailNavProps) => {
   );
 };
 
-export default MangaDetailScreen;
+export default MangaDetailScreen2;

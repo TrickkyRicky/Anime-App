@@ -30,6 +30,10 @@ const MangaSlice = createSlice({
       details: {} as any,
       detailLoader: false as boolean,
     },
+    mangaDetails2: {
+      details: {} as any,
+      detailLoader: false as boolean,
+    },
   },
   reducers: {
     setLoader(state, action: PayloadAction<Loader>) {
@@ -48,6 +52,8 @@ const MangaSlice = createSlice({
           break;
         case "mangaD":
           state.mangaDetails.detailLoader = action.payload.loading;
+        case "mangaD2":
+          state.mangaDetails2.detailLoader = action.payload.loading;
           break;
       }
     },
@@ -69,6 +75,9 @@ const MangaSlice = createSlice({
     },
     setMangaDetails(state, action: PayloadAction<{}>) {
       state.mangaDetails.details = { ...action.payload };
+    },
+    setMangaDetails2(state, action: PayloadAction<{}>) {
+      state.mangaDetails2.details = { ...action.payload };
     },
     setMangaReset(state) {
       state.topManga.manga = [];

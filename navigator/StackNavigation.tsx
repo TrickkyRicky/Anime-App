@@ -5,6 +5,7 @@ import DetailScreen from "../screens/DetailScreen";
 import DetailScreen2 from "../screens/DetailScreen2";
 import BottomTabNavigation from "./BottomTabNavigation";
 import MangaDetailScreen from "../screens/MangaDetailScreen";
+import MangaDetailScreen2 from "../screens/MangaDetailScreen2";
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,14 @@ const MyStack = () => {
       <Stack.Screen
         name="MangaDetails"
         component={MangaDetailScreen}
+        options={{
+          cardOverlayEnabled: true,
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="MangaDetails2"
+        component={MangaDetailScreen2}
         options={{
           cardOverlayEnabled: true,
           headerShown: false,

@@ -43,9 +43,13 @@ export const getMangaData = (type: string) => {
   };
 };
 
-export const getMangaDetails = (id: number) => {
+export const getMangaDetails = (id: number, is2 = false) => {
   return async (dispatch: any) => {
-    dispatch(MangaActions.setLoader({ choice: "mangaD", loading: true }));
+    if (!is2) {
+      dispatch(MangaActions.setLoader({ choice: "mangaD", loading: true }));
+    } else {
+      dispatch(MangaActions.setLoader({ choice: "mangaD2", loading: true }));
+    }
 
     const getData = async () => {
       const res = await fetch(
@@ -62,10 +66,16 @@ export const getMangaDetails = (id: number) => {
 
     try {
       const result = await getData();
-      dispatch(MangaActions.setMangaDetails(result));
-      dispatch(MangaActions.setLoader({ choice: "mangaD", loading: false }));
+      if (!is2) {
+        dispatch(MangaActions.setMangaDetails(result));
+        dispatch(MangaActions.setLoader({ choice: "mangaD", loading: false }));
+      } else {
+        dispatch(MangaActions.setMangaDetails2(result));
+        dispatch(MangaActions.setLoader({ choice: "mangaD2", loading: false }));
+      }
     } catch (err) {
       dispatch(MangaActions.setLoader({ choice: "mangaD", loading: false }));
+      dispatch(MangaActions.setLoader({ choice: "mangaD2", loading: false }));
       console.log(err);
     }
   };

@@ -43,7 +43,7 @@ const DetailsInfo = ({
   const colorScheme = useColorScheme();
   const [isLiked, setIsLiked] = useState(false);
 
-  const animation = React.useRef(null);
+  const animation = useRef<LottieView | any>(null);
   const scrollRef = useRef<ScrollView>(null);
   const isFirstRun = React.useRef(true);
 
@@ -187,11 +187,13 @@ const DetailsInfo = ({
             array={animeDetails?.details?.related_anime}
             header="Related Anime:"
             colorScheme={colorScheme}
+            isManga={false}
           />
           <Details_Rel_Rec
             array={animeDetails?.details?.recommendations}
             header="Recommended Anime:"
             colorScheme={colorScheme}
+            isManga={false}
           />
           <View style={{ paddingVertical: 35 }} />
         </ScrollView>

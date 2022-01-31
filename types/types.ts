@@ -28,6 +28,9 @@ type navList = {
   MangaDetails: {
     manga: ListingItem["item"]["node"];
   };
+  MangaDetails2: {
+    manga: ListingItem["item"]["node"];
+  };
 };
 // This Type is used for useNavigation in TopAiringAnime
 export type TopAirNavProps = StackNavigationProp<navList, "Details">;
