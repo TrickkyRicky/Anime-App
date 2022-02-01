@@ -3,6 +3,25 @@
 AniManga is an informational application using the [MAL API ---> MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2). The goal was to be able to view the
 top ranking Anime and Manga, in various different forms. Such as currently airing ranks, seasonal ranks, popular ranks, upcoming ranks, etc. Using React-Native w/[Expo](https://expo.dev/) we were able to test the application on IOS devices and Android devices for better user experience.
 
+<br/>
+
+### Anime
+
+<div>
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="275" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="275" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="275" />
+</div>
+
+### Manga
+
+<div>
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Manga.png" width="325" height="auto" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/MangaDetail.png" width="325" height="auto" />
+</div>
+
+<br/>
+
 ## Getting Started
 
 ### Prerequisites
@@ -64,20 +83,7 @@ const CLIENT_ID = 'YOUR API KEY'
 6c. Press a in terminal for Android
 ```
 
-### Anime
-
-<div>
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="250" />
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="250" />
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="250" />
-</div>
-
-### Manga
-
-<div>
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Manga.png" width="350" height="auto" />
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/MangaDetail.png" width="350" height="auto" />
-</div>
+<br/>
 
 **languages and tools:**
 
