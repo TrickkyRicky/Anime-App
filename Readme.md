@@ -57,12 +57,6 @@ const CLIENT_ID = 'YOUR API KEY'
 6c. Press a in terminal for Android
 ```
 
-<br />
-<br />
-<br />
-<br />
-<br />
-
 <div>
     <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="300" />
     <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="300" />
@@ -72,17 +66,14 @@ const CLIENT_ID = 'YOUR API KEY'
     <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Manga.png" width="300" height="auto" />
     <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/MangaDetail.png" width="300" height="auto" />
 </div>
-<br />
-<br />
-<br />
-<br />
-<br />
 
 **languages and tools:**
 
+<div style="display:block;">
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"></code>
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react-native/react-native.png"></code>
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redux/redux.png"></code>
 <code><img height="40" src="https://reactnavigation.org/img/spiro.svg"></code>
 <code><img height="40" src="https://static.expo.dev/static/brand/square-512x512.png"></code>
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
+</div>
