@@ -64,14 +64,19 @@ const CLIENT_ID = 'YOUR API KEY'
 6c. Press a in terminal for Android
 ```
 
+### Anime
+
 <div>
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="300" />
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="300" />
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="300" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="250" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="250" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="250" />
 </div>
+
+### Manga
+
 <div>
-    <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Manga.png" width="300" height="auto" />
-    <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/MangaDetail.png" width="300" height="auto" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Manga.png" width="350" height="auto" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/MangaDetail.png" width="350" height="auto" />
 </div>
 
 **languages and tools:**
