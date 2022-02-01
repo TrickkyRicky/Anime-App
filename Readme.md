@@ -8,9 +8,9 @@ top ranking Anime and Manga, in various different forms. Such as currently airin
 ### Anime
 
 <div>
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="275" />
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="275" />
-    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="275" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="270" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="270" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="270" />
 </div>
 
 ### Manga
