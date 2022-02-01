@@ -47,29 +47,31 @@ const CLIENT_ID = 'YOUR API KEY'
 - Expo App
 
 ```sh
-  6a. Scan the QR code with your phone
+6a. Scan the QR code with your phone
 ```
 
 - Computer Simulator
 
 ```sh
-  6b. Press i in terminal for IOS
-  6c. Press a in terminal for Android
+6b. Press i in terminal for IOS
+6c. Press a in terminal for Android
 ```
 
 <br />
 
-<!-- <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App" width="500" height="320" /> -->
-<!-- <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App" width="500" height="320" /> -->
-<!-- <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App" width="500" height="320" /> -->
-<!-- <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App" width="500" height="320" /> -->
-<!-- <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App" width="500" height="320" /> -->
+<img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="300" height="420" />
+<img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="300" height="420" />
+<img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="300" height="420" />
+<img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Manga.png" width="300" height="420" />
+<img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/MangaDetail.png" width="300" height="420" />
+
+<br />
 
 **languages and tools:**
 
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"></code>
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react-native/react-native.png"></code>
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redux/redux.png"></code>
-<code><img height="20" src="https://reactnavigation.org/img/spiro.svg"></code>
-<code><img height="20" src="https://static.expo.dev/static/brand/square-512x512.png"></code>
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react-native/react-native.png"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redux/redux.png"></code>
+<code><img height="40" src="https://reactnavigation.org/img/spiro.svg"></code>
+<code><img height="40" src="https://static.expo.dev/static/brand/square-512x512.png"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
