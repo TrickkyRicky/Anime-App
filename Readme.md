@@ -8,21 +8,28 @@ top ranking Anime and Manga, in various different forms. Such as currently airin
 ### Prerequisites
 
 - npm
-  ```sh
-  npm install expo -g
-  ```
+
+```sh
+npm install expo -g
+```
+
 - Device Usage
-  ```sh
-  Access the Google Playstore or App Store. Search and download Expo Go
-  ```
+
+```sh
+Access the Google Playstore or App Store. Search and download Expo Go
+```
+
 - Simulator Usage (Android)
-  ```sh
-  Access or Download Android Studio ---> AVD Manager ---> Create Virtual Device w/Play Store
-  ```
+
+```sh
+Access or Download Android Studio ---> AVD Manager ---> Create Virtual Device w/Play Store
+```
+
 - Simulator Usage (IOS)
-  ```sh
-  Access or Download Xcode ---> Xcode Dropdown ---> Open Developer Tools ---> Simulator
-  ```
+
+```sh
+Access or Download Xcode ---> Xcode Dropdown ---> Open Developer Tools ---> Simulator
+```
 
 ### Installation
 
@@ -58,9 +65,9 @@ const CLIENT_ID = 'YOUR API KEY'
 ```
 
 <div>
-    <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="300" />
-    <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="300" />
-    <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="300" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="300" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails2.png" width="300" />
+    <img align="top" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/AnimeDetails.png" width="300" />
 </div>
 <div>
     <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Manga.png" width="300" height="auto" />
