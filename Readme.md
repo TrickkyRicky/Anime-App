@@ -58,6 +58,10 @@ const CLIENT_ID = 'YOUR API KEY'
 ```
 
 <br />
+<br />
+<br />
+<br />
+<br />
 
 <div>
     <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Anime.png" width="300" />
@@ -68,6 +72,10 @@ const CLIENT_ID = 'YOUR API KEY'
     <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/Manga.png" width="300" height="auto" />
     <img align="right" alt="GIF" src="https://github.com/TrickkyRicky/Anime-App/blob/main/Readme/MangaDetail.png" width="300" height="auto" />
 </div>
+<br />
+<br />
+<br />
+<br />
 <br />
 
 **languages and tools:**
